@@ -11,10 +11,35 @@
   const yearTarget = document.querySelector("[data-current-year]");
   const signalStage = document.querySelector(".signal-stage");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const defaultLanguage = "zh-TW";
+
+  const normalizeLanguage = (language) => {
+    if (typeof language !== "string") {
+      return null;
+    }
+
+    const normalized = language.trim().toLowerCase();
+    if (normalized === "en") {
+      return "en";
+    }
+    if (normalized === "zh-tw" || normalized === "zh-hant") {
+      return "zh-TW";
+    }
+    return null;
+  };
+
+  const readUrlLanguage = () => {
+    try {
+      const url = new URL(window.location.href);
+      return normalizeLanguage(url.searchParams.get("lang"));
+    } catch {
+      return null;
+    }
+  };
 
   const readStoredLanguage = () => {
     try {
-      return window.localStorage.getItem("tokimi-language");
+      return normalizeLanguage(window.localStorage.getItem("tokimi-language"));
     } catch {
       return null;
     }
@@ -28,25 +53,68 @@
     }
   };
 
+  const syncLanguageUrl = (language, historyMode) => {
+    try {
+      const url = new URL(window.location.href);
+      url.searchParams.set("lang", language);
+      const nextUrl = `${url.pathname}${url.search}${url.hash}`;
+      const currentUrl = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+
+      if (nextUrl === currentUrl) {
+        return;
+      }
+
+      window.history[historyMode === "push" ? "pushState" : "replaceState"](
+        window.history.state,
+        "",
+        nextUrl,
+      );
+    } catch {
+      // The visible language still changes if history APIs are unavailable.
+    }
+  };
+
+  let activeLanguage = defaultLanguage;
+
   const setLanguage = (language) => {
     const useEnglish = language === "en";
+    activeLanguage = useEnglish ? "en" : defaultLanguage;
     root.classList.toggle("is-en", useEnglish);
-    root.lang = useEnglish ? "en" : "zh-Hant";
+    root.lang = activeLanguage;
 
     languageOptions.forEach((option) => {
-      const isActive = option.dataset.language === (useEnglish ? "en" : "zh-Hant");
+      const isActive = option.dataset.language === activeLanguage;
       option.setAttribute("aria-pressed", String(isActive));
     });
   };
 
-  setLanguage(readStoredLanguage() === "en" ? "en" : "zh-Hant");
+  const activateLanguage = (language, historyMode) => {
+    const nextLanguage = normalizeLanguage(language) ?? defaultLanguage;
+    setLanguage(nextLanguage);
+    storeLanguage(nextLanguage);
+    syncLanguageUrl(nextLanguage, historyMode);
+  };
+
+  activateLanguage(
+    readUrlLanguage() ?? readStoredLanguage() ?? defaultLanguage,
+    "replace",
+  );
 
   languageOptions.forEach((option) => {
     option.addEventListener("click", () => {
-      const nextLanguage = option.dataset.language;
-      setLanguage(nextLanguage);
-      storeLanguage(nextLanguage);
+      const nextLanguage = normalizeLanguage(option.dataset.language);
+      if (!nextLanguage || nextLanguage === activeLanguage) {
+        return;
+      }
+      activateLanguage(nextLanguage, "push");
     });
+  });
+
+  window.addEventListener("popstate", () => {
+    activateLanguage(
+      readUrlLanguage() ?? readStoredLanguage() ?? defaultLanguage,
+      "replace",
+    );
   });
 
   if (yearTarget) {

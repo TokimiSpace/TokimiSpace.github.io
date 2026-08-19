@@ -1,8 +1,11 @@
 # Tokimi Open Source
 
 Source for the bilingual organization page at
-[tokimispace.github.io](https://tokimispace.github.io/).
+[tokimispace.github.io](https://tokimispace.github.io/?lang=en).
 Tokimi's official website is [tokimi.space](https://tokimi.space/).
+
+[Traditional Chinese](https://tokimispace.github.io/?lang=zh-TW) ·
+[English](https://tokimispace.github.io/?lang=en)
 
 The page introduces Tokimi projects without hiding their current boundaries:
 
@@ -22,8 +25,10 @@ The page introduces Tokimi projects without hiding their current boundaries:
   license, and release date have not been announced.
 
 Visitors can switch directly between 中文 and English from the page header.
-The selected language is remembered locally in the browser; no preference is
-sent to a server.
+The selected language is reflected in the shareable URL and remembered locally
+in the browser. A valid `?lang=en` or `?lang=zh-TW` parameter takes precedence
+over the stored preference; other query parameters and section anchors are
+preserved when switching.
 
 ## Local preview
 

@@ -84,7 +84,7 @@ def main() -> int:
         if marker.lower() not in lowered:
             failures.append(f"missing public status marker: {marker}")
 
-    for language in ("zh-Hant", "en"):
+    for language in ("zh-TW", "en"):
         if f'data-language="{language}"' not in source:
             failures.append(f"missing language option: {language}")
 
@@ -139,6 +139,20 @@ def main() -> int:
     main_script = (WEBSITE / "main.js").read_text(encoding="utf-8")
     if 'localStorage.setItem("tokimi-language"' not in main_script:
         failures.append("language preference is not persisted locally")
+    for marker, failure in {
+        'searchParams.get("lang")': "language is not read from the URL",
+        'searchParams.set("lang", language)': "language is not written to the URL",
+        '"pushState"': "language changes do not create navigable history",
+        '"popstate"': "browser history does not restore the page language",
+        '"zh-TW"': "Traditional Chinese does not use the canonical URL tag",
+    }.items():
+        if marker not in main_script:
+            failures.append(failure)
+
+    readme = (WEBSITE / "README.md").read_text(encoding="utf-8")
+    for language_url in ("?lang=en", "?lang=zh-TW"):
+        if language_url not in readme:
+            failures.append(f"missing documented language URL: {language_url}")
 
     for required in (
         ROOT / "LICENSE",

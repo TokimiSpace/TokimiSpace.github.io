@@ -3,7 +3,7 @@
 SPDX-FileCopyrightText: 2026 Tokimi Rover contributors
 SPDX-License-Identifier: Apache-2.0
 -->
-<html class="no-js" lang="zh-Hant">
+<html class="no-js" lang="zh-TW">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,7 +19,34 @@ SPDX-License-Identifier: Apache-2.0
     <meta property="og:url" content="https://tokimispace.github.io/">
     <title>Tokimi Open Source</title>
     <script>
-      document.documentElement.classList.replace("no-js", "js");
+      (() => {
+        const root = document.documentElement;
+        const normalizeLanguage = (language) => {
+          const normalized = typeof language === "string"
+            ? language.trim().toLowerCase()
+            : "";
+          if (normalized === "en") {
+            return "en";
+          }
+          if (normalized === "zh-tw" || normalized === "zh-hant") {
+            return "zh-TW";
+          }
+          return null;
+        };
+        let storedLanguage = null;
+        try {
+          storedLanguage = window.localStorage.getItem("tokimi-language");
+        } catch {
+          // The URL and default language remain available without storage.
+        }
+        const queryLanguage = new URL(window.location.href).searchParams.get("lang");
+        const language = normalizeLanguage(queryLanguage)
+          ?? normalizeLanguage(storedLanguage)
+          ?? "zh-TW";
+        root.classList.toggle("is-en", language === "en");
+        root.lang = language;
+        root.classList.replace("no-js", "js");
+      })();
     </script>
     <link rel="canonical" href="https://tokimispace.github.io/">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -61,9 +88,9 @@ SPDX-License-Identifier: Apache-2.0
         <button
           class="language-toggle__option"
           type="button"
-          data-language="zh-Hant"
+          data-language="zh-TW"
           aria-pressed="true"
-          lang="zh-Hant"
+          lang="zh-TW"
         >中文</button>
         <span class="language-toggle__separator" aria-hidden="true">/</span>
         <button
