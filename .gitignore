@@ -4,6 +4,8 @@
 .DS_Store
 .playwright-cli/
 output/playwright/
+__pycache__/
+*.py[cod]
 .vscode/
 .idea/
 *.log

@@ -1,5 +1,7 @@
 # SPDX-FileCopyrightText: 2026 Tokimi Rover contributors
 # SPDX-License-Identifier: Apache-2.0
 
-* text=auto eol=lf
-*.png binary
+User-agent: *
+Allow: /
+
+Sitemap: https://tokimispace.github.io/sitemap.xml

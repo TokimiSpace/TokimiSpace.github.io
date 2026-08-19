@@ -9,6 +9,8 @@ The following software and automation are licensed under Apache License 2.0:
 
 - `index.html`, `styles.css`, and `main.js`, including the prose, markup, and
   CSS/SVG illustrations embedded in those files;
+- `social-card-rover-v1.svg`, its rendered PNG, and the PNG license sidecar;
+- `robots.txt` and `sitemap.xml`;
 - executable support files under `scripts/`;
 - repository automation and configuration under `.github/`;
 - `.editorconfig`, `.gitattributes`, and `.gitignore`.

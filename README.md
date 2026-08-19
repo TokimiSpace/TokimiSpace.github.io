@@ -7,6 +7,8 @@ Tokimi's official website is [tokimi.space](https://tokimi.space/).
 [Traditional Chinese](https://tokimispace.github.io/?lang=zh-TW) ·
 [English](https://tokimispace.github.io/?lang=en)
 
+![Tokimi Rover social preview](social-card-rover-v1.png)
+
 The page introduces Tokimi projects without hiding their current boundaries:
 
 - [Tokimi Rover](https://github.com/TokimiSpace/tokimi-rover) is a supervised,
@@ -58,6 +60,11 @@ repositories—`TokimiSpace/tokimi-rover` and `topben/astrogroot`—rather than
 being inferred from this organization-site repository. The official-site link
 deliberately points to `tokimi.space`; this GitHub Pages site remains the
 open-source project portal.
+
+Link previews for LINE and Twitter/X use a committed 1200 × 630 PNG generated
+from `social-card-rover-v1.svg`. The versioned filename intentionally gives
+social crawlers a new URL when the artwork changes; update both Open Graph and
+Twitter Card tags when publishing a later version.
 
 ## Content boundaries
 
