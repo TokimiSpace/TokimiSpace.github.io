@@ -1,0 +1,12 @@
+# SPDX-FileCopyrightText: 2026 Tokimi Rover contributors
+# SPDX-License-Identifier: Apache-2.0
+
+.DS_Store
+.playwright-cli/
+output/playwright/
+.vscode/
+.idea/
+*.log
+*.tmp
+*.swp
+*~

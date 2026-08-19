@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<!--
+SPDX-FileCopyrightText: 2026 Tokimi Rover contributors
+SPDX-License-Identifier: Apache-2.0
+-->
+<html class="no-js" lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#edf3f0">
+    <meta name="color-scheme" content="light">
+    <meta
+      name="description"
+      content="Tokimi Open Source publishes source code, design decisions, and known limitations together. Tokimi Rover source is available now; Darkforest is planned."
+    >
+    <meta property="og:title" content="Tokimi Open Source">
+    <meta property="og:description" content="Open code. Clear boundaries. Better experiments.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tokimispace.github.io/">
+    <title>Tokimi Open Source</title>
+    <script>
+      document.documentElement.classList.replace("no-js", "js");
+    </script>
+    <link rel="canonical" href="https://tokimispace.github.io/">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+
+  <body id="top">
+    <a class="skip-link" href="#main-content">
+      <span class="zh">跳到主要內容</span>
+      <span class="en" lang="en">Skip to content</span>
+    </a>
+
+    <div class="paper-grid" aria-hidden="true"></div>
+
+    <header class="site-header" aria-label="主要導覽 / Primary navigation">
+      <a class="wordmark" href="#top">
+        <span class="wordmark__name">TOKIMI</span>
+        <span class="wordmark__channel">OPEN SOURCE / OS.01</span>
+      </a>
+
+      <nav class="site-nav" aria-label="頁面區段 / Page sections">
+        <a href="#projects">
+          <span class="zh">專案</span>
+          <span class="en" lang="en">Projects</span>
+        </a>
+        <a href="#principles">
+          <span class="zh">原則</span>
+          <span class="en" lang="en">Principles</span>
+        </a>
+        <a href="https://github.com/TokimiSpace">
+          GitHub <span aria-hidden="true">↗</span>
+        </a>
+      </nav>
+
+      <button class="language-toggle" type="button" aria-pressed="false">
+        <span class="language-toggle__active">中</span>
+        <span aria-hidden="true">/</span>
+        <span>EN</span>
+      </button>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__copy">
+          <p class="eyebrow reveal">TOKIMI / OPEN WORKBENCH / 2026</p>
+          <h1 id="hero-title" class="hero__title reveal">
+            <span class="zh">把方法<br>留在<span class="title-cut">原始碼</span>裡。</span>
+            <span class="en" lang="en">Leave the<br> method in the <span class="title-cut">source.</span></span>
+          </h1>
+          <p class="hero__lead reveal">
+            <span class="zh">把原始碼、設計決策與已知限制一起公開。</span>
+            <span class="en" lang="en">Open code. Clear boundaries. Better experiments.</span>
+          </p>
+          <p class="hero__body reveal">
+            <span class="zh">我們將 Tokimi 的實驗作品整理成可檢視、可建置、可延伸的開源專案。Tokimi Rover 原始碼現已公開；Darkforest 預計在未來加入。</span>
+            <span class="en" lang="en">We publish source, design decisions, and known limitations together. Tokimi Rover source is available now; Darkforest is planned for a future open-source release.</span>
+          </p>
+
+          <div class="hero__actions reveal">
+            <a class="button button--primary" href="#rover">
+              <span class="zh">查看 Tokimi Rover</span>
+              <span class="en" lang="en">Explore Tokimi Rover</span>
+              <span aria-hidden="true">↓</span>
+            </a>
+            <a class="button button--text" href="#principles">
+              <span class="zh">我們如何開源</span>
+              <span class="en" lang="en">How we publish</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="signal-stage reveal">
+          <svg class="signal-map" viewBox="0 0 760 650" role="img" aria-labelledby="signal-title signal-description">
+            <title id="signal-title">Tokimi 開源專案狀態圖 / Tokimi open-source project status map</title>
+            <desc id="signal-description">一條已公開原始碼的訊號通往 Tokimi Rover，另一條規劃中訊號通往尚未發布的 Darkforest。 One source-available signal leads to Tokimi Rover; a planned signal leads to the unreleased Darkforest project.</desc>
+            <defs>
+              <pattern id="micro-grid" width="32" height="32" patternUnits="userSpaceOnUse">
+                <path d="M32 0H0V32" fill="none" stroke="currentColor" stroke-width="1"></path>
+              </pattern>
+            </defs>
+            <rect class="signal-map__grid" width="760" height="650" fill="url(#micro-grid)"></rect>
+            <path class="signal-map__frame" d="M52 82H708V568H52Z"></path>
+            <path class="signal-map__trace signal-map__trace--rover" d="M92 327H214C258 327 258 186 306 186H540C580 186 580 142 630 142"></path>
+            <path class="signal-map__trace signal-map__trace--forest" d="M92 327H214C258 327 258 466 306 466H630"></path>
+            <circle class="signal-map__origin" cx="92" cy="327" r="13"></circle>
+            <circle class="signal-map__node signal-map__node--rover" cx="630" cy="142" r="11"></circle>
+            <circle class="signal-map__node signal-map__node--forest" cx="630" cy="466" r="11"></circle>
+            <g class="signal-map__labels">
+              <text x="74" y="295">TOKIMI BUS</text>
+              <text x="548" y="111">01 / ROVER</text>
+              <text x="522" y="435">02 / DARKFOREST</text>
+              <text x="548" y="174">SOURCE AVAILABLE</text>
+              <text x="528" y="498">PLANNED · NOT RELEASED</text>
+            </g>
+            <g class="signal-map__ticks" aria-hidden="true">
+              <path d="M52 106h18M52 130h9M52 154h9M52 178h18M52 202h9M52 226h9M52 250h18"></path>
+              <path d="M690 568v-18M666 568v-9M642 568v-9M618 568v-18M594 568v-9M570 568v-9M546 568v-18"></path>
+            </g>
+          </svg>
+
+          <div class="signal-readout" aria-hidden="true">
+            <span>CHANNEL</span>
+            <strong>OPEN / 01</strong>
+            <span>FEATURED 1 · PLANNED 1</span>
+          </div>
+
+          <p class="signal-note">
+            <span class="zh">這是專案狀態圖，不是發布時程。</span>
+            <span class="en" lang="en">Project status, not a release timeline.</span>
+          </p>
+        </div>
+      </section>
+
+      <section class="manifesto" aria-labelledby="manifesto-title">
+        <p class="section-index">MANIFEST / 00</p>
+        <div>
+          <h2 id="manifesto-title" class="reveal">
+            <span class="zh">不只交付展示結果，<br>也交付判斷依據。</span>
+            <span class="en" lang="en">Not just the demo.<br> The reasoning behind it.</span>
+          </h2>
+        </div>
+        <p class="manifesto__copy reveal">
+          <span class="zh">開源對我們來說是一次完整交接：哪些能重做、哪些只被觀察過、哪些還沒有答案，都應該留在同一張工作台上。</span>
+          <span class="en" lang="en">For us, open source is a complete handoff: what can be rebuilt, what was only observed, and what remains unresolved should live on the same workbench.</span>
+        </p>
+      </section>
+
+      <section id="projects" class="projects" aria-labelledby="projects-title">
+        <div class="section-heading">
+          <p class="section-index">PROJECT REGISTER / 01—02</p>
+          <h2 id="projects-title">
+            <span class="zh">開放中的工作</span>
+            <span class="en" lang="en">Work in the open</span>
+          </h2>
+          <p>
+            <span class="zh">狀態文字說明現在，而不是許諾未來。</span>
+            <span class="en" lang="en">Status describes the present; it does not promise the future.</span>
+          </p>
+        </div>
+
+        <article id="rover" class="project project--rover reveal">
+          <div class="project__meta">
+            <span class="status status--live">
+              <span class="status__dot" aria-hidden="true"></span>
+              <span class="zh">原始碼現已公開</span>
+              <span class="en" lang="en">Source available</span>
+            </span>
+            <span class="project__number">PROJECT / 01</span>
+          </div>
+
+          <div class="project__content">
+            <div class="project__title-block">
+              <p class="project__type">EMBEDDED SYSTEMS / ROBOTICS</p>
+              <h3>Tokimi<br> Rover</h3>
+              <p class="project__version">V0.1 · SUPERVISED PROTOTYPE</p>
+            </div>
+
+            <div class="rover-visual" aria-hidden="true">
+              <svg viewBox="0 0 660 390">
+                <g class="rover-visual__ground">
+                  <path d="M42 337H620"></path>
+                  <path d="M88 352H574"></path>
+                </g>
+                <g class="rover-visual__wheels">
+                  <ellipse cx="155" cy="306" rx="64" ry="76"></ellipse>
+                  <ellipse cx="505" cy="306" rx="64" ry="76"></ellipse>
+                  <path d="M119 278h72M119 306h72M119 334h72M469 278h72M469 306h72M469 334h72"></path>
+                </g>
+                <path class="rover-visual__body" d="M151 260l55-137h248l55 137-42 65H193Z"></path>
+                <path class="rover-visual__roof" d="M224 123l34-57h144l34 57"></path>
+                <g class="rover-visual__camera">
+                  <rect x="286" y="50" width="88" height="66" rx="8"></rect>
+                  <circle cx="330" cy="83" r="22"></circle>
+                  <circle cx="330" cy="83" r="8"></circle>
+                </g>
+                <g class="rover-visual__face">
+                  <rect x="246" y="166" width="168" height="82" rx="9"></rect>
+                  <path d="M274 211q25-23 50 0M336 211q25-23 50 0"></path>
+                </g>
+                <path class="rover-visual__light" d="M224 278H436"></path>
+                <g class="rover-visual__callouts">
+                  <path d="M374 82h116"></path>
+                  <path d="M414 206h108"></path>
+                  <path d="M436 278h86"></path>
+                </g>
+              </svg>
+              <div class="visual-label visual-label--camera">OV3660</div>
+              <div class="visual-label visual-label--oled">OLED</div>
+              <div class="visual-label visual-label--light">32 × WS2812</div>
+            </div>
+
+            <div class="project__description">
+              <p class="project__summary">
+                <span class="zh">模組化雙 ESP32-S3 遙控車原型，結合瀏覽器遙控、獨立 OV3660 攝影節點、OLED 動畫表情與 32 顆可定址燈光。</span>
+                <span class="en" lang="en">A modular dual-ESP32-S3 rover prototype with browser teleoperation, an independent OV3660 camera node, animated OLED faces, and 32-pixel addressable lighting.</span>
+              </p>
+
+              <ul class="evidence-list" aria-label="查核狀態 / Evidence status">
+                <li>SOURCE AUDITED</li>
+                <li>FIRMWARE BUILDS CONFIRMED</li>
+                <li>HARDWARE NOT AUDIT-RETESTED</li>
+              </ul>
+
+              <p class="project__warning">
+                <strong>
+                  <span class="zh">安全邊界</span>
+                  <span class="en" lang="en">Safety boundary</span>
+                </strong>
+                <span class="zh">受監督原型；非量產或安全認證車輛。操作前請先閱讀安全說明與已知問題。</span>
+                <span class="en" lang="en">Supervised prototype; not a production or safety-certified vehicle. Read the safety guide and known issues before operation.</span>
+              </p>
+
+              <div class="project__actions">
+                <a class="button button--primary" href="https://github.com/TokimiSpace/tokimi-rover">
+                  <span class="zh">查看原始碼</span>
+                  <span class="en" lang="en">View source</span>
+                  <span aria-hidden="true">↗</span>
+                </a>
+                <a class="button button--text" href="https://github.com/TokimiSpace/tokimi-rover/blob/main/docs/SAFETY.md">
+                  <span class="zh">安全說明</span>
+                  <span class="en" lang="en">Safety notes</span>
+                </a>
+                <a class="button button--text" href="https://github.com/TokimiSpace/tokimi-rover/blob/main/KNOWN_ISSUES.md">
+                  <span class="zh">已知問題</span>
+                  <span class="en" lang="en">Known issues</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="project project--forest reveal">
+          <div class="project__meta">
+            <span class="status status--planned">
+              <span class="status__dot" aria-hidden="true"></span>
+              <span class="zh">預計開源 · 尚未釋出</span>
+              <span class="en" lang="en">Planned · not released</span>
+            </span>
+            <span class="project__number">PROJECT / 02</span>
+          </div>
+
+          <div class="project__content">
+            <div class="project__title-block">
+              <p class="project__type">GAME PROJECT / SCOPE IN PREPARATION</p>
+              <h3>Dark<br>forest</h3>
+              <p class="project__version">FUTURE RELEASE · LICENSE TBD</p>
+            </div>
+
+            <div class="forest-visual" aria-hidden="true">
+              <div class="forest-visual__moon"></div>
+              <div class="forest-visual__mist forest-visual__mist--one"></div>
+              <div class="forest-visual__mist forest-visual__mist--two"></div>
+              <span class="tree tree--1"></span>
+              <span class="tree tree--2"></span>
+              <span class="tree tree--3"></span>
+              <span class="tree tree--4"></span>
+              <span class="tree tree--5"></span>
+              <span class="forest-visual__coordinate">STATUS / UNPUBLISHED</span>
+            </div>
+
+            <div class="project__description">
+              <p class="project__summary">
+                <span class="zh">Darkforest 是 Tokimi 的遊戲專案，預計在未來開源。公開範圍、授權與時程仍在整理，準備完成後將另行公布。</span>
+                <span class="en" lang="en">Darkforest is a Tokimi game project planned for a future open-source release. Scope, license, and timing have not been announced yet.</span>
+              </p>
+
+              <div class="pending-register">
+                <div>
+                  <span>SOURCE</span>
+                  <strong>NOT RELEASED</strong>
+                </div>
+                <div>
+                  <span>LICENSE</span>
+                  <strong>TO BE DEFINED</strong>
+                </div>
+                <div>
+                  <span>DATE</span>
+                  <strong>NOT ANNOUNCED</strong>
+                </div>
+              </div>
+
+              <p class="project__pending">
+                <span class="status__dot" aria-hidden="true"></span>
+                <span class="zh">目前沒有下載、原始碼或等待名單。</span>
+                <span class="en" lang="en">No download, source link, or waitlist is available yet.</span>
+              </p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="principles" class="principles" aria-labelledby="principles-title">
+        <div class="section-heading section-heading--light">
+          <p class="section-index">PUBLISHING PROTOCOL / 03</p>
+          <h2 id="principles-title">
+            <span class="zh">開源，不省略邊界。</span>
+            <span class="en" lang="en">Open, with the boundaries intact.</span>
+          </h2>
+        </div>
+
+        <ol class="principle-list">
+          <li class="reveal">
+            <span class="principle-list__marker">A</span>
+            <h3>
+              <span class="zh">可驗證</span>
+              <span class="en" lang="en">Verifiable</span>
+            </h3>
+            <p>
+              <span class="zh">區分原始碼確認、建置確認、實機紀錄與未來規劃。</span>
+              <span class="en" lang="en">We distinguish source-confirmed, build-confirmed, historically observed, and planned work.</span>
+            </p>
+          </li>
+          <li class="reveal">
+            <span class="principle-list__marker">B</span>
+            <h3>
+              <span class="zh">限制透明</span>
+              <span class="en" lang="en">Transparent limits</span>
+            </h3>
+            <p>
+              <span class="zh">公開已知問題，不把原型包裝成成品。</span>
+              <span class="en" lang="en">Known limitations stay visible; prototypes are not presented as finished products.</span>
+            </p>
+          </li>
+          <li class="reveal">
+            <span class="principle-list__marker">C</span>
+            <h3>
+              <span class="zh">授權清楚</span>
+              <span class="en" lang="en">Clear licensing</span>
+            </h3>
+            <p>
+              <span class="zh">程式、硬體來源與文件依專案標示各自授權；品牌權利維持獨立。</span>
+              <span class="en" lang="en">Code, hardware source, and documentation carry scoped licenses; brand rights remain separate.</span>
+            </p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="handoff" aria-labelledby="handoff-title">
+        <div>
+          <p class="section-index">NEXT HANDOFF</p>
+          <h2 id="handoff-title">
+            <span class="zh">從一台 Rover 開始，<br>慢慢打開更多作品。</span>
+            <span class="en" lang="en">Starting with one rover,<br> opening more work over time.</span>
+          </h2>
+        </div>
+        <div class="handoff__copy">
+          <p>
+            <span class="zh">現在先把 Tokimi Rover 的技術脈絡交給社群。Darkforest 預計在內容、權利與公開範圍準備完成後，再規劃加入。</span>
+            <span class="en" lang="en">Tokimi Rover is the first technical handoff. Darkforest is planned to join only after its content, rights, and release scope are ready.</span>
+          </p>
+          <a class="button button--primary" href="https://github.com/TokimiSpace/tokimi-rover/blob/main/CONTRIBUTING.md">
+            <span class="zh">參與 Rover 專案</span>
+            <span class="en" lang="en">Contribute to Rover</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__brand">
+        <strong>TOKIMI / 時見數位科技</strong>
+        <span>OPEN PROJECTS, CLEARLY SCOPED.</span>
+      </div>
+      <p>
+        <span class="zh">各專案授權僅適用於明確標示範圍；Tokimi 名稱、標誌與官方標示仍屬獨立品牌資產。</span>
+        <span class="en" lang="en">Project licenses apply only to their stated scope. Tokimi names, logos, and official designations remain separate brand assets.</span>
+      </p>
+      <div class="site-footer__links">
+        <a href="https://github.com/TokimiSpace/TokimiSpace.github.io/blob/main/LICENSES.md">
+          <span class="zh">授權範圍</span>
+          <span class="en" lang="en">License scope</span>
+        </a>
+        <a href="mailto:ben@tokimi.space">ben@tokimi.space</a>
+        <a href="#top">
+          <span class="zh">回到頂端</span>
+          <span class="en" lang="en">Back to top</span>
+          <span aria-hidden="true">↑</span>
+        </a>
+      </div>
+      <span class="site-footer__year">© <span data-current-year>2026</span> TOKIMI</span>
+    </footer>
+
+    <script src="main.js" defer></script>
+  </body>
+</html>
