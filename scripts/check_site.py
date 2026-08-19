@@ -66,6 +66,7 @@ def main() -> int:
 
     required_markers = {
         "SOURCE AUDITED",
+        "OWNER-SELECTED V3 CAD PUBLISHED",
         "HARDWARE NOT AUDIT-RETESTED",
         "PLANNED · NOT RELEASED",
         "LICENSE TBD",
@@ -88,6 +89,21 @@ def main() -> int:
     for claim in sorted(forbidden_claims):
         if claim.lower() in lowered:
             failures.append(f"forbidden or unsupported claim: {claim}")
+
+    official_site = 'href="https://tokimi.space/"'
+    if source.count(official_site) < 2:
+        failures.append("official Tokimi website must be linked in header and footer")
+
+    cad_package = (
+        'href="https://github.com/TokimiSpace/tokimi-rover/tree/main/'
+        'hardware/cad/top-cover-v3"'
+    )
+    if cad_package not in source:
+        failures.append("missing public Supercar V3 top-cover CAD link")
+
+    for boundary in ("195 × 100 mm", "203 × 105 mm"):
+        if boundary not in source:
+            failures.append(f"missing CAD physical-boundary marker: {boundary}")
 
     for filename, license_id in {
         "index.html": "Apache-2.0",

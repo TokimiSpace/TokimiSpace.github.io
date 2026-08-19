@@ -2,12 +2,17 @@
 
 Source for the bilingual organization page at
 [tokimispace.github.io](https://tokimispace.github.io/).
+Tokimi's official website is [tokimi.space](https://tokimi.space/).
 
 The page introduces Tokimi projects without hiding their current boundaries:
 
 - [Tokimi Rover](https://github.com/TokimiSpace/tokimi-rover) is a supervised,
   open-source hardware prototype whose source and firmware builds have been
-  audited. The current audit did not physically retest the assembled rover.
+  audited. Its owner-selected
+  [Supercar V3 top-cover CAD](https://github.com/TokimiSpace/tokimi-rover/tree/main/hardware/cad/top-cover-v3)
+  is also published, but the current audit did not physically retest the
+  assembled rover or reconcile the V3 195 × 100 mm pattern with the historical
+  203 × 105 mm rover record.
 - Darkforest is planned for a future open-source release. Its source, scope,
   license, and release date have not been announced.
 
@@ -40,7 +45,8 @@ the same local validation without deploying.
 The page loads no analytics, trackers, third-party fonts, remote images, or
 package dependencies. Rover links deliberately point to the separate
 `TokimiSpace/tokimi-rover` repository rather than being inferred from this
-organization-site repository.
+organization-site repository. The official-site link deliberately points to
+`tokimi.space`; this GitHub Pages site remains the open-source project portal.
 
 ## Content boundaries
 
