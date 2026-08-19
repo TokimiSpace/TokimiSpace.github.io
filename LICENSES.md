@@ -29,14 +29,19 @@ work or file, credit **Tokimi Rover contributors**, link to this repository and
 CC-BY-4.0 where reasonably practical, and indicate modifications.
 
 The `Tokimi Rover contributors` credit preserves the initial site's source
-provenance. It does not represent or license unreleased Darkforest material.
+provenance. It does not assert ownership of AstroGroot's indexed third-party
+materials or represent or license unreleased Darkforest material.
 
 ## Project and brand boundaries
 
-This site's license map does not change the separate license map of
-[Tokimi Rover](https://github.com/TokimiSpace/tokimi-rover). The statement that
-Darkforest is planned for possible future open-source publication does not
-license any unreleased Darkforest code, art, design, name, or other material.
+This site's license map does not change the separate license maps of
+[Tokimi Rover](https://github.com/TokimiSpace/tokimi-rover) or
+[AstroGroot](https://github.com/topben/astrogroot). AstroGroot's repository
+identifies its application source as MIT-licensed; linking to indexed papers,
+videos, NASA material, or other third-party sources does not relicense them.
+The statement that Darkforest is planned for possible future open-source
+publication does not license any unreleased Darkforest code, art, design, name,
+or other material.
 
 The licenses above do not grant trademark rights in Tokimi, 時見數位科技,
 Tokimi logos, or official-project designations. Necessary attribution,

@@ -13,6 +13,11 @@ The page introduces Tokimi projects without hiding their current boundaries:
   is also published, but the current audit did not physically retest the
   assembled rover or reconcile the V3 195 × 100 mm pattern with the historical
   203 × 105 mm rover record.
+- [AstroGroot](https://astrogroot.org/) is a live automated research library
+  for astronomy, space science, and robotics. Its application source is public
+  at [topben/astrogroot](https://github.com/topben/astrogroot) under the MIT
+  License. Indexed third-party material keeps its original terms, and AI
+  summaries are discovery aids rather than substitutes for original sources.
 - Darkforest is planned for a future open-source release. Its source, scope,
   license, and release date have not been announced.
 
@@ -43,16 +48,18 @@ GitHub Pages artifact, and deploys it through GitHub Actions. Pull requests run
 the same local validation without deploying.
 
 The page loads no analytics, trackers, third-party fonts, remote images, or
-package dependencies. Rover links deliberately point to the separate
-`TokimiSpace/tokimi-rover` repository rather than being inferred from this
-organization-site repository. The official-site link deliberately points to
-`tokimi.space`; this GitHub Pages site remains the open-source project portal.
+package dependencies. Project links deliberately point to their separate
+repositories—`TokimiSpace/tokimi-rover` and `topben/astrogroot`—rather than
+being inferred from this organization-site repository. The official-site link
+deliberately points to `tokimi.space`; this GitHub Pages site remains the
+open-source project portal.
 
 ## Content boundaries
 
-The abstract Darkforest visual is CSS artwork for this page, not game footage
-or production game art. No Darkforest source, download, waitlist, feature set,
-license, platform, or date is promised here.
+The AstroGroot knowledge-map visual and the abstract Darkforest visual are
+original inline CSS/SVG artwork for this page, not copied logos, screenshots,
+game footage, or production game art. No Darkforest source, download, waitlist,
+feature set, license, platform, or date is promised here.
 
 See [LICENSES.md](LICENSES.md) for path-specific licensing and
 [TRADEMARKS.md](TRADEMARKS.md) for brand boundaries.

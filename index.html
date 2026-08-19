@@ -11,7 +11,7 @@ SPDX-License-Identifier: Apache-2.0
     <meta name="color-scheme" content="light">
     <meta
       name="description"
-      content="Tokimi Open Source publishes source code, design decisions, and known limitations together. Tokimi Rover source and Supercar V3 top-cover CAD are available now; Darkforest is planned."
+      content="Explore Tokimi Rover, its Supercar V3 top-cover CAD, and the AstroGroot research library. Darkforest remains a planned future open-source release."
     >
     <meta property="og:title" content="Tokimi Open Source">
     <meta property="og:description" content="Open code. Clear boundaries. Better experiments.">
@@ -89,14 +89,14 @@ SPDX-License-Identifier: Apache-2.0
             <span class="en" lang="en">Open code. Clear boundaries. Better experiments.</span>
           </p>
           <p class="hero__body reveal">
-            <span class="zh">我們將 Tokimi 的實驗作品整理成可檢視、可建置、可延伸的開源專案。Tokimi Rover 原始碼與 Supercar V3 車殼 CAD 現已公開；Darkforest 預計在未來加入。</span>
-            <span class="en" lang="en">We publish source, design decisions, and known limitations together. Tokimi Rover source and Supercar V3 top-cover CAD are available now; Darkforest is planned for a future open-source release.</span>
+            <span class="zh">我們將 Tokimi 的實驗作品整理成可檢視、可建置、可延伸的開源專案。Tokimi Rover 與 AstroGroot 已公開；Darkforest 預計在未來加入。</span>
+            <span class="en" lang="en">We publish source, design decisions, and known limitations together. Tokimi Rover and AstroGroot are open now; Darkforest is planned for a future open-source release.</span>
           </p>
 
           <div class="hero__actions reveal">
-            <a class="button button--primary" href="#rover">
-              <span class="zh">查看 Tokimi Rover</span>
-              <span class="en" lang="en">Explore Tokimi Rover</span>
+            <a class="button button--primary" href="#projects">
+              <span class="zh">查看公開專案</span>
+              <span class="en" lang="en">Explore open projects</span>
               <span aria-hidden="true">↓</span>
             </a>
             <a class="button button--text" href="#principles">
@@ -109,7 +109,7 @@ SPDX-License-Identifier: Apache-2.0
         <div class="signal-stage reveal">
           <svg class="signal-map" viewBox="0 0 760 650" role="img" aria-labelledby="signal-title signal-description">
             <title id="signal-title">Tokimi 開源專案狀態圖 / Tokimi open-source project status map</title>
-            <desc id="signal-description">一條已公開原始碼的訊號通往 Tokimi Rover，另一條規劃中訊號通往尚未發布的 Darkforest。 One source-available signal leads to Tokimi Rover; a planned signal leads to the unreleased Darkforest project.</desc>
+            <desc id="signal-description">兩條已公開訊號分別通往 Tokimi Rover 與 AstroGroot；另一條規劃中訊號通往尚未發布的 Darkforest。 Two open signals lead to Tokimi Rover and AstroGroot; a planned signal leads to the unreleased Darkforest project.</desc>
             <defs>
               <pattern id="micro-grid" width="32" height="32" patternUnits="userSpaceOnUse">
                 <path d="M32 0H0V32" fill="none" stroke="currentColor" stroke-width="1"></path>
@@ -118,15 +118,19 @@ SPDX-License-Identifier: Apache-2.0
             <rect class="signal-map__grid" width="760" height="650" fill="url(#micro-grid)"></rect>
             <path class="signal-map__frame" d="M52 82H708V568H52Z"></path>
             <path class="signal-map__trace signal-map__trace--rover" d="M92 327H214C258 327 258 186 306 186H540C580 186 580 142 630 142"></path>
+            <path class="signal-map__trace signal-map__trace--library" d="M92 327H500C560 327 560 304 630 304"></path>
             <path class="signal-map__trace signal-map__trace--forest" d="M92 327H214C258 327 258 466 306 466H630"></path>
             <circle class="signal-map__origin" cx="92" cy="327" r="13"></circle>
             <circle class="signal-map__node signal-map__node--rover" cx="630" cy="142" r="11"></circle>
+            <circle class="signal-map__node signal-map__node--library" cx="630" cy="304" r="11"></circle>
             <circle class="signal-map__node signal-map__node--forest" cx="630" cy="466" r="11"></circle>
             <g class="signal-map__labels">
               <text x="74" y="295">TOKIMI BUS</text>
               <text x="548" y="111">01 / ROVER</text>
-              <text x="522" y="435">02 / DARKFOREST</text>
+              <text x="514" y="273">02 / ASTROGROOT</text>
+              <text x="522" y="435">03 / DARKFOREST</text>
               <text x="548" y="174">SOURCE AVAILABLE</text>
+              <text x="536" y="336">LIVE + MIT SOURCE</text>
               <text x="528" y="498">PLANNED · NOT RELEASED</text>
             </g>
             <g class="signal-map__ticks" aria-hidden="true">
@@ -137,8 +141,8 @@ SPDX-License-Identifier: Apache-2.0
 
           <div class="signal-readout" aria-hidden="true">
             <span>CHANNEL</span>
-            <strong>OPEN / 01</strong>
-            <span>FEATURED 1 · PLANNED 1</span>
+            <strong>OPEN / 02</strong>
+            <span>FEATURED 2 · PLANNED 1</span>
           </div>
 
           <p class="signal-note">
@@ -164,7 +168,7 @@ SPDX-License-Identifier: Apache-2.0
 
       <section id="projects" class="projects" aria-labelledby="projects-title">
         <div class="section-heading">
-          <p class="section-index">PROJECT REGISTER / 01—02</p>
+          <p class="section-index">PROJECT REGISTER / 01—03</p>
           <h2 id="projects-title">
             <span class="zh">開放中的工作</span>
             <span class="en" lang="en">Work in the open</span>
@@ -232,12 +236,18 @@ SPDX-License-Identifier: Apache-2.0
                 <span class="en" lang="en">A modular dual-ESP32-S3 rover prototype with browser teleoperation, an independent OV3660 camera node, animated OLED faces, and 32-pixel addressable lighting. The editable Blender file and print package for the Supercar V3 top cover are also public; its 195 × 100 mm pattern has not been physically reconciled with the historical 203 × 105 mm rover record.</span>
               </p>
 
-              <ul class="evidence-list" aria-label="查核狀態 / Evidence status">
-                <li>SOURCE AUDITED</li>
-                <li>FIRMWARE BUILDS CONFIRMED</li>
-                <li>OWNER-SELECTED V3 CAD PUBLISHED</li>
-                <li>HARDWARE NOT AUDIT-RETESTED</li>
-              </ul>
+              <section class="evidence-group" aria-labelledby="rover-evidence-title">
+                <h4 id="rover-evidence-title" class="visually-hidden">
+                  <span class="zh">Tokimi Rover 查核狀態</span>
+                  <span class="en" lang="en">Tokimi Rover evidence status</span>
+                </h4>
+                <ul class="evidence-list">
+                  <li>SOURCE AUDITED</li>
+                  <li>FIRMWARE BUILDS CONFIRMED</li>
+                  <li>OWNER-SELECTED V3 CAD PUBLISHED</li>
+                  <li>HARDWARE NOT AUDIT-RETESTED</li>
+                </ul>
+              </section>
 
               <p class="project__warning">
                 <strong>
@@ -272,14 +282,124 @@ SPDX-License-Identifier: Apache-2.0
           </div>
         </article>
 
-        <article class="project project--forest reveal">
+        <article id="astrogroot" class="project project--astro reveal">
+          <div class="project__meta">
+            <span class="status status--research">
+              <span class="status__dot" aria-hidden="true"></span>
+              <span class="zh">網站與原始碼已公開</span>
+              <span class="en" lang="en">Live site + source available</span>
+            </span>
+            <span class="project__number">PROJECT / 02</span>
+          </div>
+
+          <div class="project__content">
+            <div class="project__title-block">
+              <p class="project__type">RESEARCH LIBRARY / SEMANTIC SEARCH</p>
+              <h3>Astro<br>Groot</h3>
+              <p class="project__version">LIVE WEB APP · MIT LICENSE</p>
+            </div>
+
+            <div class="astro-visual" aria-hidden="true">
+              <svg viewBox="0 0 660 390">
+                <g class="astro-visual__stars">
+                  <circle cx="70" cy="56" r="2"></circle>
+                  <circle cx="151" cy="82" r="1.5"></circle>
+                  <circle cx="246" cy="38" r="2"></circle>
+                  <circle cx="389" cy="63" r="1.5"></circle>
+                  <circle cx="514" cy="44" r="2"></circle>
+                  <circle cx="601" cy="103" r="1.5"></circle>
+                  <circle cx="84" cy="325" r="1.5"></circle>
+                  <circle cx="215" cy="346" r="2"></circle>
+                  <circle cx="436" cy="332" r="1.5"></circle>
+                  <circle cx="590" cy="296" r="2"></circle>
+                </g>
+                <g class="astro-visual__orbits">
+                  <ellipse cx="330" cy="195" rx="236" ry="104" transform="rotate(-9 330 195)"></ellipse>
+                  <ellipse cx="330" cy="195" rx="146" ry="176" transform="rotate(64 330 195)"></ellipse>
+                </g>
+                <g class="astro-visual__links">
+                  <path d="M116 102L330 195 116 195M116 288L330 195 544 138M330 195l214 114"></path>
+                </g>
+                <g class="astro-visual__nodes">
+                  <circle cx="116" cy="102" r="14"></circle>
+                  <circle cx="116" cy="195" r="14"></circle>
+                  <circle cx="116" cy="288" r="14"></circle>
+                  <circle cx="544" cy="138" r="14"></circle>
+                  <circle cx="544" cy="309" r="14"></circle>
+                </g>
+                <g class="astro-visual__core">
+                  <circle class="astro-visual__pulse" cx="330" cy="195" r="58"></circle>
+                  <circle cx="330" cy="195" r="39"></circle>
+                  <path d="M306 195h48M330 171v48"></path>
+                </g>
+                <g class="astro-visual__labels">
+                  <text x="88" y="76">ARX</text>
+                  <text x="88" y="169">VID</text>
+                  <text x="82" y="262">NASA</text>
+                  <text x="312" y="250">VEC</text>
+                  <text x="518" y="112">MATCH</text>
+                  <text x="511" y="345">SOURCE</text>
+                </g>
+              </svg>
+              <span class="astro-visual__coordinate">INDEX / VECTOR / QUERY</span>
+            </div>
+
+            <div class="project__description">
+              <p class="project__summary">
+                <span class="zh">涵蓋天文學、太空科學與機器人領域的自動化研究圖書館，索引 arXiv 論文、YouTube 科普影片與 NASA 內容，並提供 Claude AI 摘要及向量語意搜尋。</span>
+                <span class="en" lang="en">An automated research library for astronomy, space science, and robotics. It indexes arXiv papers, educational YouTube videos, and NASA content, with Claude AI summaries and vector-based semantic search.</span>
+              </p>
+
+              <section class="evidence-group" aria-labelledby="astrogroot-evidence-title">
+                <h4 id="astrogroot-evidence-title" class="visually-hidden">
+                  <span class="zh">AstroGroot 查核狀態</span>
+                  <span class="en" lang="en">AstroGroot evidence status</span>
+                </h4>
+                <ul class="evidence-list">
+                  <li>LIVE SITE VERIFIED</li>
+                  <li>PUBLIC SOURCE REPOSITORY</li>
+                  <li>APPLICATION CODE · MIT</li>
+                  <li>AI SUMMARIES · CHECK SOURCES</li>
+                  <li>BUILD + DATA NOT AUDIT-VERIFIED</li>
+                </ul>
+              </section>
+
+              <p class="project__note">
+                <strong>
+                  <span class="zh">內容與授權邊界</span>
+                  <span class="en" lang="en">Content and license boundary</span>
+                </strong>
+                <span class="zh">MIT 授權適用於應用程式原始碼，不代表所索引的論文、影片或 NASA 來源內容採相同授權。AI 摘要僅供探索；引用或判讀前請回到原始來源。本次整合未重新建置應用程式，也未稽核館藏完整性或線上執行環境。</span>
+                <span class="en" lang="en">MIT covers the application source, not the indexed papers, videos, or NASA source material. AI summaries are discovery aids; consult the original source before citation or reliance. This integration did not rebuild the app or audit corpus completeness or the production runtime.</span>
+              </p>
+
+              <div class="project__actions">
+                <a class="button button--primary" href="https://astrogroot.org/">
+                  <span class="zh">開啟 AstroGroot</span>
+                  <span class="en" lang="en">Open AstroGroot</span>
+                  <span aria-hidden="true">↗</span>
+                </a>
+                <a class="button button--text" href="https://github.com/topben/astrogroot">
+                  <span class="zh">查看原始碼</span>
+                  <span class="en" lang="en">View source</span>
+                  <span aria-hidden="true">↗</span>
+                </a>
+                <a class="button button--text" href="https://github.com/topben/astrogroot/blob/main/LICENSE">
+                  MIT LICENSE <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article id="darkforest" class="project project--forest reveal">
           <div class="project__meta">
             <span class="status status--planned">
               <span class="status__dot" aria-hidden="true"></span>
               <span class="zh">預計開源 · 尚未釋出</span>
               <span class="en" lang="en">Planned · not released</span>
             </span>
-            <span class="project__number">PROJECT / 02</span>
+            <span class="project__number">PROJECT / 03</span>
           </div>
 
           <div class="project__content">
@@ -334,7 +454,7 @@ SPDX-License-Identifier: Apache-2.0
 
       <section id="principles" class="principles" aria-labelledby="principles-title">
         <div class="section-heading section-heading--light">
-          <p class="section-index">PUBLISHING PROTOCOL / 03</p>
+          <p class="section-index">PUBLISHING PROTOCOL / 04</p>
           <h2 id="principles-title">
             <span class="zh">開源，不省略邊界。</span>
             <span class="en" lang="en">Open, with the boundaries intact.</span>
@@ -382,14 +502,14 @@ SPDX-License-Identifier: Apache-2.0
         <div>
           <p class="section-index">NEXT HANDOFF</p>
           <h2 id="handoff-title">
-            <span class="zh">從一台 Rover 開始，<br>慢慢打開更多作品。</span>
-            <span class="en" lang="en">Starting with one rover,<br> opening more work over time.</span>
+            <span class="zh">從一台 Rover 與一座<br>研究圖書館開始。</span>
+            <span class="en" lang="en">Starting with a rover<br> and a research library.</span>
           </h2>
         </div>
         <div class="handoff__copy">
           <p>
-            <span class="zh">現在先把 Tokimi Rover 的技術脈絡交給社群。Darkforest 預計在內容、權利與公開範圍準備完成後，再規劃加入。</span>
-            <span class="en" lang="en">Tokimi Rover is the first technical handoff. Darkforest is planned to join only after its content, rights, and release scope are ready.</span>
+            <span class="zh">Tokimi Rover 與 AstroGroot 已交給社群檢視與延伸。Darkforest 預計在內容、權利與公開範圍準備完成後，再規劃加入。</span>
+            <span class="en" lang="en">Tokimi Rover and AstroGroot are open for inspection and extension. Darkforest is planned to join only after its content, rights, and release scope are ready.</span>
           </p>
           <a class="button button--primary" href="https://github.com/TokimiSpace/tokimi-rover/blob/main/CONTRIBUTING.md">
             <span class="zh">參與 Rover 專案</span>

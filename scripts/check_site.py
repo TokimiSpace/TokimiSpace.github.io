@@ -68,6 +68,14 @@ def main() -> int:
         "SOURCE AUDITED",
         "OWNER-SELECTED V3 CAD PUBLISHED",
         "HARDWARE NOT AUDIT-RETESTED",
+        "LIVE SITE VERIFIED",
+        "PUBLIC SOURCE REPOSITORY",
+        "APPLICATION CODE · MIT",
+        "AI SUMMARIES · CHECK SOURCES",
+        "BUILD + DATA NOT AUDIT-VERIFIED",
+        "FEATURED 2 · PLANNED 1",
+        "PROJECT REGISTER / 01—03",
+        "PUBLISHING PROTOCOL / 04",
         "PLANNED · NOT RELEASED",
         "LICENSE TBD",
     }
@@ -85,6 +93,9 @@ def main() -> int:
         "safety-certified rover",
         "Darkforest source available",
         "Tokimi Rover is available now",
+        "AstroGroot source audited",
+        "AstroGroot build confirmed",
+        "AstroGroot summaries are peer reviewed",
     }
     for claim in sorted(forbidden_claims):
         if claim.lower() in lowered:
@@ -100,6 +111,16 @@ def main() -> int:
     )
     if cad_package not in source:
         failures.append("missing public Supercar V3 top-cover CAD link")
+
+    for label, link in {
+        "AstroGroot live site": 'href="https://astrogroot.org/"',
+        "AstroGroot source": 'href="https://github.com/topben/astrogroot"',
+        "AstroGroot MIT license": (
+            'href="https://github.com/topben/astrogroot/blob/main/LICENSE"'
+        ),
+    }.items():
+        if link not in source:
+            failures.append(f"missing {label} link")
 
     for boundary in ("195 × 100 mm", "203 × 105 mm"):
         if boundary not in source:
