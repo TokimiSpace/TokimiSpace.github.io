@@ -11,6 +11,10 @@ The page introduces Tokimi projects without hiding their current boundaries:
 - Darkforest is planned for a future open-source release. Its source, scope,
   license, and release date have not been announced.
 
+Visitors can switch directly between 中文 and English from the page header.
+The selected language is remembered locally in the browser; no preference is
+sent to a server.
+
 ## Local preview
 
 The site is dependency-free HTML, CSS, and JavaScript. From this repository's

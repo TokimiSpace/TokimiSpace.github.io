@@ -75,6 +75,10 @@ def main() -> int:
         if marker.lower() not in lowered:
             failures.append(f"missing public status marker: {marker}")
 
+    for language in ("zh-Hant", "en"):
+        if f'data-language="{language}"' not in source:
+            failures.append(f"missing language option: {language}")
+
     forbidden_claims = {
         "production-ready",
         "safety-certified rover",
@@ -94,6 +98,10 @@ def main() -> int:
         contents = (WEBSITE / filename).read_text(encoding="utf-8")
         if f"SPDX-License-Identifier: {license_id}" not in contents:
             failures.append(f"missing {license_id} SPDX marker: {filename}")
+
+    main_script = (WEBSITE / "main.js").read_text(encoding="utf-8")
+    if 'localStorage.setItem("tokimi-language"' not in main_script:
+        failures.append("language preference is not persisted locally")
 
     for required in (
         ROOT / "LICENSE",

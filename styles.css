@@ -208,43 +208,41 @@ html.is-en .en {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 72px;
+  min-width: 128px;
   min-height: 36px;
   margin-left: 28px;
-  padding: 0 10px;
-  gap: 7px;
+  padding: 3px;
+  gap: 2px;
   border: 1px solid var(--line-dark);
   border-radius: var(--radius-small);
   background: transparent;
-  cursor: pointer;
   font-family: var(--mono);
   font-size: 11px;
+}
+
+.language-toggle__option {
+  min-height: 28px;
+  padding: 0 8px;
+  border: 0;
+  border-radius: calc(var(--radius-small) - 2px);
+  background: transparent;
+  cursor: pointer;
+  font-weight: 500;
   transition: background 180ms ease, color 180ms ease;
 }
 
-.language-toggle:hover {
+.language-toggle__option:hover {
+  background: color-mix(in srgb, var(--signal) 12%, transparent);
+}
+
+.language-toggle__option[aria-pressed="true"] {
   background: var(--ink);
   color: var(--white);
-}
-
-.language-toggle:hover .language-toggle__active,
-html.is-en .language-toggle:hover span:last-child {
-  color: var(--signal-bright);
-}
-
-.language-toggle__active {
-  color: var(--signal);
   font-weight: 800;
 }
 
-html.is-en .language-toggle__active {
-  color: inherit;
-  font-weight: 400;
-}
-
-html.is-en .language-toggle span:last-child {
-  color: var(--signal);
-  font-weight: 800;
+.language-toggle__separator {
+  color: var(--ink-soft);
 }
 
 main,
@@ -1258,8 +1256,12 @@ main,
   }
 
   .language-toggle {
-    min-width: 64px;
+    min-width: 120px;
     margin-left: 12px;
+  }
+
+  .language-toggle__option {
+    padding: 0 6px;
   }
 
   .hero {

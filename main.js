@@ -7,7 +7,7 @@
   "use strict";
 
   const root = document.documentElement;
-  const languageToggle = document.querySelector(".language-toggle");
+  const languageOptions = document.querySelectorAll("[data-language]");
   const yearTarget = document.querySelector("[data-current-year]");
   const signalStage = document.querySelector(".signal-stage");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -33,21 +33,20 @@
     root.classList.toggle("is-en", useEnglish);
     root.lang = useEnglish ? "en" : "zh-Hant";
 
-    if (languageToggle) {
-      languageToggle.setAttribute("aria-pressed", String(useEnglish));
-      languageToggle.setAttribute(
-        "aria-label",
-        useEnglish ? "中 / EN — 切換為繁體中文" : "中 / EN — Switch to English",
-      );
-    }
+    languageOptions.forEach((option) => {
+      const isActive = option.dataset.language === (useEnglish ? "en" : "zh-Hant");
+      option.setAttribute("aria-pressed", String(isActive));
+    });
   };
 
   setLanguage(readStoredLanguage() === "en" ? "en" : "zh-Hant");
 
-  languageToggle?.addEventListener("click", () => {
-    const nextLanguage = root.classList.contains("is-en") ? "zh-Hant" : "en";
-    setLanguage(nextLanguage);
-    storeLanguage(nextLanguage);
+  languageOptions.forEach((option) => {
+    option.addEventListener("click", () => {
+      const nextLanguage = option.dataset.language;
+      setLanguage(nextLanguage);
+      storeLanguage(nextLanguage);
+    });
   });
 
   if (yearTarget) {
