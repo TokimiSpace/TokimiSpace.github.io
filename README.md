@@ -7,7 +7,7 @@ Tokimi's official website is [tokimi.space](https://tokimi.space/).
 [Traditional Chinese](https://tokimispace.github.io/?lang=zh-TW) ·
 [English](https://tokimispace.github.io/?lang=en)
 
-![Tokimi Rover social preview](social-card-rover-v1.png)
+![Tokimi Open Source social preview](social-card-open-source-v2.png)
 
 The page introduces Tokimi projects without hiding their current boundaries:
 
@@ -23,8 +23,12 @@ The page introduces Tokimi projects without hiding their current boundaries:
   at [topben/astrogroot](https://github.com/topben/astrogroot) under the MIT
   License. Indexed third-party material keeps its original terms, and AI
   summaries are discovery aids rather than substitutes for original sources.
-- Darkforest is planned for a future open-source release. Its source, scope,
-  license, and release date have not been announced.
+- [Darkforest Web](https://github.com/TokimiSpace/darkforest-web) is the
+  Apache-2.0 browser client and local demo for Darkforest: Reset Protocol. The
+  standalone local-demo schema v1 is intentionally incompatible with and does
+  not connect to the official service. The private match server, game core,
+  live operations, and unreleased content pipeline are deliberately not
+  included.
 
 Visitors can switch directly between 中文 and English from the page header.
 The selected language is reflected in the shareable URL and remembered locally
@@ -56,22 +60,27 @@ the same local validation without deploying.
 
 The page loads no analytics, trackers, third-party fonts, remote images, or
 package dependencies. Project links deliberately point to their separate
-repositories—`TokimiSpace/tokimi-rover` and `topben/astrogroot`—rather than
-being inferred from this organization-site repository. The official-site link
+repositories—`TokimiSpace/tokimi-rover`, `topben/astrogroot`, and
+`TokimiSpace/darkforest-web`—rather than being inferred from this
+organization-site repository. The official-site link
 deliberately points to `tokimi.space`; this GitHub Pages site remains the
 open-source project portal.
 
 Link previews for LINE and Twitter/X use a committed 1200 × 630 PNG generated
-from `social-card-rover-v1.svg`. The versioned filename intentionally gives
-social crawlers a new URL when the artwork changes; update both Open Graph and
-Twitter Card tags when publishing a later version.
+from `social-card-open-source-v2.svg`. Its signal bus branches to Tokimi Rover,
+AstroGroot, and Darkforest Web without relying on project screenshots or remote
+assets. The versioned filename intentionally gives social crawlers a new URL
+when the artwork changes; update both Open Graph and Twitter Card tags when
+publishing a later version.
 
 ## Content boundaries
 
 The AstroGroot knowledge-map visual and the abstract Darkforest visual are
 original inline CSS/SVG artwork for this page, not copied logos, screenshots,
-game footage, or production game art. No Darkforest source, download, waitlist,
-feature set, license, platform, or date is promised here.
+game footage, or production game art. The Darkforest entry describes only the
+separately licensed public web client and local demo; it makes no claim that the
+private game core, official contract, match server, live service, or unreleased
+content pipeline is open source or compatible with the public demo.
 
 See [LICENSES.md](LICENSES.md) for path-specific licensing and
 [TRADEMARKS.md](TRADEMARKS.md) for brand boundaries.

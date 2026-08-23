@@ -16,7 +16,10 @@ from urllib.parse import unquote, urlsplit
 ROOT = Path(__file__).resolve().parent.parent
 WEBSITE = ROOT
 INDEX = ROOT / "index.html"
-SOCIAL_PREVIEW = ROOT / "social-card-rover-v1.png"
+SOCIAL_CARD_BASENAME = "social-card-open-source-v2"
+SOCIAL_SOURCE = ROOT / f"{SOCIAL_CARD_BASENAME}.svg"
+SOCIAL_PREVIEW = ROOT / f"{SOCIAL_CARD_BASENAME}.png"
+SOCIAL_LICENSE = ROOT / f"{SOCIAL_CARD_BASENAME}.png.license"
 
 
 class PageParser(HTMLParser):
@@ -75,11 +78,13 @@ def main() -> int:
         "APPLICATION CODE · MIT",
         "AI SUMMARIES · CHECK SOURCES",
         "BUILD + DATA NOT AUDIT-VERIFIED",
-        "FEATURED 2 · PLANNED 1",
+        "FEATURED 3 · CLEARLY SCOPED",
         "PROJECT REGISTER / 01—03",
         "PUBLISHING PROTOCOL / 04",
-        "PLANNED · NOT RELEASED",
-        "LICENSE TBD",
+        "FRONTEND SOURCE AVAILABLE",
+        "FRONTEND · PRE-ALPHA",
+        "APACHE-2.0 CODE",
+        "SERVER NOT INCLUDED",
     }
     lowered = source.lower()
     for marker in sorted(required_markers):
@@ -90,7 +95,9 @@ def main() -> int:
         if f'data-language="{language}"' not in source:
             failures.append(f"missing language option: {language}")
 
-    social_image_url = "https://tokimispace.github.io/social-card-rover-v1.png"
+    social_image_url = (
+        f"https://tokimispace.github.io/{SOCIAL_CARD_BASENAME}.png"
+    )
     for marker, failure in {
         '<meta name="robots" content="index, follow, max-image-preview:large">': "missing large-image robots directive",
         '<meta property="og:title"': "missing Open Graph title",
@@ -117,6 +124,9 @@ def main() -> int:
         "production-ready",
         "safety-certified rover",
         "Darkforest source available",
+        "Darkforest game is open source",
+        "Darkforest server source available",
+        "Full game source available",
         "Tokimi Rover is available now",
         "AstroGroot source audited",
         "AstroGroot build confirmed",
@@ -143,6 +153,10 @@ def main() -> int:
         "AstroGroot MIT license": (
             'href="https://github.com/topben/astrogroot/blob/main/LICENSE"'
         ),
+        "Darkforest frontend source": (
+            'href="https://github.com/TokimiSpace/darkforest-web"'
+        ),
+        "Darkforest official site": 'href="https://darkforest.tw/"',
     }.items():
         if link not in source:
             failures.append(f"missing {label} link")
@@ -158,8 +172,8 @@ def main() -> int:
         "favicon.svg": "CC-BY-4.0",
         "robots.txt": "Apache-2.0",
         "sitemap.xml": "Apache-2.0",
-        "social-card-rover-v1.svg": "Apache-2.0",
-        "social-card-rover-v1.png.license": "Apache-2.0",
+        f"{SOCIAL_CARD_BASENAME}.svg": "Apache-2.0",
+        f"{SOCIAL_CARD_BASENAME}.png.license": "Apache-2.0",
     }.items():
         contents = (WEBSITE / filename).read_text(encoding="utf-8")
         if f"SPDX-License-Identifier: {license_id}" not in contents:
@@ -190,8 +204,8 @@ def main() -> int:
         ROOT / "TRADEMARKS.md",
         ROOT / "robots.txt",
         ROOT / "sitemap.xml",
-        ROOT / "social-card-rover-v1.svg",
-        ROOT / "social-card-rover-v1.png.license",
+        SOCIAL_SOURCE,
+        SOCIAL_LICENSE,
     ):
         if not required.is_file():
             failures.append(f"missing publication file: {required.relative_to(ROOT)}")
@@ -212,6 +226,27 @@ def main() -> int:
                 failures.append(
                     f"social preview must be 1200x630, got {width}x{height}"
                 )
+
+    if SOCIAL_SOURCE.is_file():
+        social_source = SOCIAL_SOURCE.read_text(encoding="utf-8")
+        for marker in (
+            "TOKIMI / OPEN SOURCE / SIGNAL BUS",
+            "TOKIMI ROVER",
+            "ASTROGROOT",
+            "DARKFOREST WEB",
+            "#007370",
+            "#6655c7",
+            "#dc5939",
+        ):
+            if marker not in social_source:
+                failures.append(f"social-card source missing project signal: {marker}")
+
+    for stale_source, label in (
+        (source, "index.html"),
+        (readme, "README.md"),
+    ):
+        if "social-card-rover-v1.png" in stale_source:
+            failures.append(f"{label} still references the Rover-only social card")
 
     robots = ROOT / "robots.txt"
     if robots.is_file() and "https://tokimispace.github.io/sitemap.xml" not in (
