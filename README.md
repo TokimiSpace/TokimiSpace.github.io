@@ -3,6 +3,9 @@
 Source for the bilingual organization page at
 [tokimispace.github.io](https://tokimispace.github.io/?lang=en).
 Tokimi's official website is [tokimi.space](https://tokimi.space/).
+The official bilingual gateway is available in
+[Traditional Chinese](https://tokimi.space/open-source/) and
+[English](https://tokimi.space/en/open-source/).
 
 [Traditional Chinese](https://tokimispace.github.io/?lang=zh-TW) ·
 [English](https://tokimispace.github.io/?lang=en)
@@ -25,7 +28,7 @@ The page introduces Tokimi projects without hiding their current boundaries:
   summaries are discovery aids rather than substitutes for original sources.
 - [Darkforest Web](https://github.com/TokimiSpace/darkforest-web) is the
   Apache-2.0 browser client and local demo for Darkforest: Reset Protocol. The
-  standalone local-demo schema v1 is intentionally incompatible with and does
+  standalone public-demo schema v1 is intentionally incompatible with and does
   not connect to the official service. The private match server, game core,
   live operations, and unreleased content pipeline are deliberately not
   included.

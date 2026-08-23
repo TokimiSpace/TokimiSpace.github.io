@@ -140,6 +140,16 @@ def main() -> int:
     if source.count(official_site) < 2:
         failures.append("official Tokimi website must be linked in header and footer")
 
+    for locale, link in {
+        "Traditional Chinese": 'href="https://tokimi.space/open-source/"',
+        "English": 'href="https://tokimi.space/en/open-source/"',
+    }.items():
+        if source.count(link) < 2:
+            failures.append(f"official {locale} open-source page must be linked in header and footer")
+
+    if "standalone public-demo schema v1" not in source:
+        failures.append("missing canonical standalone public-demo schema v1 wording")
+
     cad_package = (
         'href="https://github.com/TokimiSpace/tokimi-rover/tree/main/'
         'hardware/cad/top-cover-v3"'
