@@ -23,7 +23,7 @@ The root [LICENSE](LICENSE) is an unmodified copy of Apache License 2.0.
 Original documentation and the listed favicon artwork are licensed under Creative Commons
 Attribution 4.0 International:
 
-- `README.md`, this `LICENSES.md`, and `TRADEMARKS.md`;
+- `README.md`, `README.en.md`, this `LICENSES.md`, and `TRADEMARKS.md`;
 - `favicon.svg`.
 
 The full legal code is at
