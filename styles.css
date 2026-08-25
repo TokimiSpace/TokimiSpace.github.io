@@ -15,6 +15,9 @@
   --signal-bright: #00aaa5;
   --camera: #6655c7;
   --alert: #dc5939;
+  --privacy: #a33c73;
+  --privacy-dark: #6f284e;
+  --privacy-soft: #f7edf2;
   --forest: #162d27;
   --forest-mid: #26483e;
   --mist: #a9d0c1;
@@ -57,7 +60,13 @@ body::before {
   left: 0;
   width: 100%;
   height: 3px;
-  background: linear-gradient(90deg, var(--signal) 0 58%, var(--camera) 58% 76%, var(--alert) 76% 100%);
+  background: linear-gradient(
+    90deg,
+    var(--signal) 0 48%,
+    var(--camera) 48% 66%,
+    var(--alert) 66% 82%,
+    var(--privacy) 82% 100%
+  );
   content: "";
 }
 
@@ -458,11 +467,18 @@ main,
 }
 
 .signal-map__trace--forest {
-  stroke: var(--camera);
+  stroke: var(--alert);
   stroke-dasharray: 2 13;
   stroke-width: 4;
   opacity: 0.58;
   animation: trace-forward 14s linear infinite reverse;
+}
+
+.signal-map__trace--privacy {
+  stroke: var(--privacy);
+  stroke-dasharray: 17 7 3 7;
+  stroke-width: 4;
+  animation: trace-forward 12s linear infinite;
 }
 
 .signal-map__origin {
@@ -489,8 +505,21 @@ main,
 
 .signal-map__node--forest {
   fill: var(--paper);
-  stroke: var(--camera);
+  stroke: var(--alert);
   opacity: 0.72;
+}
+
+.signal-map__packet rect {
+  fill: var(--paper-bright);
+  stroke: var(--privacy);
+  stroke-width: 5;
+}
+
+.signal-map__packet path {
+  fill: none;
+  stroke: var(--privacy);
+  stroke-linejoin: round;
+  stroke-width: 2;
 }
 
 .signal-map__labels {
@@ -533,8 +562,9 @@ main,
 
 .signal-note {
   position: absolute;
-  right: 8%;
-  bottom: 13%;
+  right: auto;
+  bottom: 3%;
+  left: 8%;
   margin: 0;
   padding: 6px 9px;
   background: var(--paper);
@@ -555,12 +585,12 @@ main,
   100% {
     opacity: 0.65;
     transform: scale(0.8);
-    transform-origin: 630px 142px;
+    transform-origin: 630px 120px;
   }
   50% {
     opacity: 1;
     transform: scale(1.1);
-    transform-origin: 630px 142px;
+    transform-origin: 630px 120px;
   }
 }
 
@@ -569,12 +599,12 @@ main,
   100% {
     opacity: 0.72;
     transform: scale(0.84);
-    transform-origin: 630px 304px;
+    transform-origin: 630px 247px;
   }
   50% {
     opacity: 1;
     transform: scale(1.08);
-    transform-origin: 630px 304px;
+    transform-origin: 630px 247px;
   }
 }
 
@@ -691,6 +721,14 @@ main,
   box-shadow: 0 0 0 5px rgba(102, 85, 199, 0.12);
 }
 
+.status--privacy {
+  color: var(--privacy);
+}
+
+.status--privacy .status__dot {
+  box-shadow: 0 0 0 5px rgba(163, 60, 115, 0.12);
+}
+
 .status--planned {
   color: var(--mist);
 }
@@ -799,7 +837,8 @@ main,
 
 .rover-visual,
 .astro-visual,
-.forest-visual {
+.forest-visual,
+.privacy-visual {
   position: relative;
   min-height: 520px;
 }
@@ -1208,6 +1247,203 @@ main,
   letter-spacing: 0.04em;
 }
 
+.project--privacy {
+  border-color: #98617b;
+  background: var(--privacy-soft);
+}
+
+.project--privacy::before,
+.project--privacy .project__meta,
+.project--privacy .project__description {
+  border-color: #c6a2b3;
+}
+
+.project--privacy::before {
+  background: #c6a2b3;
+}
+
+.project--privacy .project__type,
+.project--privacy .project__version,
+.project--privacy .project__number {
+  color: var(--privacy-dark);
+}
+
+.project--privacy .button--primary {
+  box-shadow: 5px 5px 0 var(--privacy);
+}
+
+.project--privacy .button--primary:hover,
+.project--privacy .button--primary:focus-visible {
+  box-shadow: 2px 2px 0 var(--privacy);
+}
+
+.privacy-visual {
+  display: grid;
+  overflow: hidden;
+  place-items: center;
+  background:
+    radial-gradient(circle at 67% 49%, rgba(163, 60, 115, 0.2), transparent 31%),
+    linear-gradient(135deg, #faeef4 0%, #ead8e1 100%);
+}
+
+.privacy-visual::before {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(111, 40, 78, 0.075) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(111, 40, 78, 0.075) 1px, transparent 1px);
+  background-size: 32px 32px;
+  content: "";
+}
+
+.privacy-visual svg {
+  position: relative;
+  z-index: 1;
+  width: 95%;
+  overflow: visible;
+}
+
+.privacy-visual__zones rect {
+  fill: rgba(249, 251, 249, 0.55);
+  stroke: var(--ink);
+  stroke-width: 2;
+}
+
+.privacy-visual__zones path {
+  fill: none;
+  stroke: var(--privacy);
+  stroke-dasharray: 5 7;
+  stroke-width: 3;
+}
+
+.privacy-visual__headings,
+.privacy-visual__raw,
+.privacy-visual__envelope,
+.privacy-visual__outbound {
+  font-family: var(--mono);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.privacy-visual__headings {
+  fill: var(--privacy-dark);
+  font-size: 10px;
+}
+
+.privacy-visual__raw rect {
+  fill: var(--paper-bright);
+  stroke: var(--ink-soft);
+  stroke-width: 1.5;
+}
+
+.privacy-visual__raw text {
+  fill: var(--ink);
+  font-size: 11px;
+}
+
+.privacy-visual__mapping,
+.privacy-visual__outbound path {
+  fill: none;
+  stroke: var(--privacy);
+  stroke-linecap: square;
+  stroke-linejoin: round;
+  stroke-width: 4;
+}
+
+.privacy-visual__envelope rect {
+  fill: var(--privacy);
+  stroke: var(--privacy-dark);
+  stroke-width: 2;
+}
+
+.privacy-visual__envelope path {
+  fill: none;
+  stroke: #fceff6;
+  stroke-width: 2;
+}
+
+.privacy-visual__envelope text {
+  fill: #ffffff;
+  font-size: 13px;
+}
+
+.privacy-visual__envelope text:last-child {
+  font-size: 8px;
+  letter-spacing: 0.04em;
+}
+
+.privacy-visual__outbound rect {
+  fill: var(--ink);
+  stroke: var(--privacy);
+  stroke-width: 4;
+}
+
+.privacy-visual__outbound text {
+  fill: #ffffff;
+  font-size: 13px;
+}
+
+.privacy-visual__coordinate {
+  position: absolute;
+  z-index: 2;
+  right: 22px;
+  bottom: 20px;
+  color: var(--privacy-dark);
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.project__privacy-boundary {
+  display: grid;
+  margin: 28px 0 0;
+  padding: 18px 20px;
+  gap: 5px;
+  border-left: 3px solid var(--privacy);
+  background: rgba(163, 60, 115, 0.08);
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.project__privacy-boundary strong {
+  color: var(--privacy-dark);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.privacy-register {
+  display: grid;
+  margin-top: 30px;
+  border-top: 1px solid #c6a2b3;
+}
+
+.privacy-register > div {
+  display: grid;
+  grid-template-columns: 0.42fr 1fr;
+  padding: 12px 0;
+  gap: 18px;
+  border-bottom: 1px solid #c6a2b3;
+}
+
+.privacy-register span,
+.privacy-register strong {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+}
+
+.privacy-register span {
+  color: var(--privacy-dark);
+}
+
+.privacy-register strong {
+  font-weight: 800;
+}
+
 .principles {
   padding: 0 max(32px, calc((100vw - min(1540px, calc(100vw - 64px))) / 2)) 120px;
   background: var(--ink);
@@ -1384,6 +1620,10 @@ main,
 
   .project--forest .project__description {
     border-top-color: #42645b;
+  }
+
+  .project--privacy .project__description {
+    border-top-color: #c6a2b3;
   }
 }
 
@@ -1564,7 +1804,8 @@ main,
 
   .rover-visual,
   .astro-visual,
-  .forest-visual {
+  .forest-visual,
+  .privacy-visual {
     min-height: 390px;
   }
 

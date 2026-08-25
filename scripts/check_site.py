@@ -6,6 +6,7 @@
 
 from __future__ import annotations
 
+import json
 import struct
 import sys
 from html.parser import HTMLParser
@@ -16,7 +17,7 @@ from urllib.parse import unquote, urlsplit
 ROOT = Path(__file__).resolve().parent.parent
 WEBSITE = ROOT
 INDEX = ROOT / "index.html"
-SOCIAL_CARD_BASENAME = "social-card-open-source-v2"
+SOCIAL_CARD_BASENAME = "social-card-open-source-v3"
 SOCIAL_SOURCE = ROOT / f"{SOCIAL_CARD_BASENAME}.svg"
 SOCIAL_PREVIEW = ROOT / f"{SOCIAL_CARD_BASENAME}.png"
 SOCIAL_LICENSE = ROOT / f"{SOCIAL_CARD_BASENAME}.png.license"
@@ -27,16 +28,29 @@ class PageParser(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.ids: list[str] = []
         self.references: list[tuple[str, str]] = []
+        self.json_ld_blocks: list[str] = []
+        self._json_ld_chunks: list[str] | None = None
 
     def handle_starttag(
         self, tag: str, attrs: list[tuple[str, str | None]]
     ) -> None:
         values = dict(attrs)
+        if tag == "script" and values.get("type") == "application/ld+json":
+            self._json_ld_chunks = []
         if element_id := values.get("id"):
             self.ids.append(element_id)
         for attribute in ("href", "src"):
             if value := values.get(attribute):
                 self.references.append((attribute, value))
+
+    def handle_data(self, data: str) -> None:
+        if self._json_ld_chunks is not None:
+            self._json_ld_chunks.append(data)
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag == "script" and self._json_ld_chunks is not None:
+            self.json_ld_blocks.append("".join(self._json_ld_chunks))
+            self._json_ld_chunks = None
 
 
 def main() -> int:
@@ -78,13 +92,19 @@ def main() -> int:
         "APPLICATION CODE · MIT",
         "AI SUMMARIES · CHECK SOURCES",
         "BUILD + DATA NOT AUDIT-VERIFIED",
-        "FEATURED 3 · CLEARLY SCOPED",
-        "PROJECT REGISTER / 01—03",
+        "FEATURED 4 · CLEARLY SCOPED",
+        "PROJECT REGISTER / 01—04",
         "PUBLISHING PROTOCOL / 04",
         "FRONTEND SOURCE AVAILABLE",
         "FRONTEND · PRE-ALPHA",
         "APACHE-2.0 CODE",
         "SERVER NOT INCLUDED",
+        "HARDENED REFERENCE EXTRACTION",
+        "NOT PRODUCTION DEPLOYMENT EVIDENCE",
+        "PSEUDONYMIZATION · NOT ANONYMIZATION",
+        "OUTBOUND PAYLOAD TESTS",
+        "SUPPORTED ID → ALIAS / BLOCK → KIMI",
+        "MINIMIZED DATA MAY BE SENT",
     }
     lowered = source.lower()
     for marker in sorted(required_markers):
@@ -116,6 +136,7 @@ def main() -> int:
         '<meta name="twitter:description"': "missing Twitter Card description",
         f'<meta name="twitter:image" content="{social_image_url}">': "missing absolute Twitter Card image",
         '<meta name="twitter:image:alt"': "missing Twitter Card image alternative text",
+        '<script type="application/ld+json">': "missing JSON-LD project list",
     }.items():
         if marker not in source:
             failures.append(failure)
@@ -131,6 +152,10 @@ def main() -> int:
         "AstroGroot source audited",
         "AstroGroot build confirmed",
         "AstroGroot summaries are peer reviewed",
+        "all user data is anonymized",
+        "no user data reaches the provider",
+        "guarantees zero leakage",
+        "production assistant enabled",
     }
     for claim in sorted(forbidden_claims):
         if claim.lower() in lowered:
@@ -167,6 +192,10 @@ def main() -> int:
             'href="https://github.com/TokimiSpace/darkforest-web"'
         ),
         "Darkforest official site": 'href="https://darkforest.tw/"',
+        "BridgeTime Kimi privacy source": (
+            'href="https://github.com/TokimiSpace/bridgetime-kimi-privacy"'
+        ),
+        "BridgeTime live site": 'href="https://bridgetime.org/"',
     }.items():
         if link not in source:
             failures.append(f"missing {label} link")
@@ -207,6 +236,40 @@ def main() -> int:
         if language_url not in readme:
             failures.append(f"missing documented language URL: {language_url}")
 
+    if not parser.json_ld_blocks:
+        failures.append("missing parseable JSON-LD block")
+    else:
+        try:
+            json_ld = json.loads(parser.json_ld_blocks[0])
+        except json.JSONDecodeError as error:
+            failures.append(f"invalid JSON-LD: {error}")
+        else:
+            if json_ld.get("@type") != "ItemList":
+                failures.append("JSON-LD root must be an ItemList")
+            if json_ld.get("numberOfItems") != 4:
+                failures.append("JSON-LD project count must be 4")
+            elements = json_ld.get("itemListElement")
+            if not isinstance(elements, list) or len(elements) != 4:
+                failures.append("JSON-LD must describe exactly four projects")
+            else:
+                repositories = {
+                    element.get("item", {}).get("codeRepository")
+                    for element in elements
+                    if isinstance(element, dict)
+                }
+                expected_repositories = {
+                    "https://github.com/TokimiSpace/tokimi-rover",
+                    "https://github.com/topben/astrogroot",
+                    "https://github.com/TokimiSpace/darkforest-web",
+                    "https://github.com/TokimiSpace/bridgetime-kimi-privacy",
+                }
+                missing_repositories = expected_repositories - repositories
+                if missing_repositories:
+                    failures.append(
+                        "JSON-LD missing code repositories: "
+                        + ", ".join(sorted(missing_repositories))
+                    )
+
     for required in (
         ROOT / "LICENSE",
         ROOT / "LICENSES" / "CC-BY-4.0.txt",
@@ -244,9 +307,13 @@ def main() -> int:
             "TOKIMI ROVER",
             "ASTROGROOT",
             "DARKFOREST WEB",
+            "BRIDGETIME KIMI PRIVACY",
+            "SUPPORTED ID → ALIAS / BLOCK → KIMI",
+            "OPEN / 04",
             "#007370",
             "#6655c7",
             "#dc5939",
+            "#a33c73",
         ):
             if marker not in social_source:
                 failures.append(f"social-card source missing project signal: {marker}")
@@ -255,8 +322,22 @@ def main() -> int:
         (source, "index.html"),
         (readme, "README.md"),
     ):
-        if "social-card-rover-v1.png" in stale_source:
-            failures.append(f"{label} still references the Rover-only social card")
+        for stale_card in (
+            "social-card-rover-v1.png",
+            "social-card-open-source-v2.png",
+        ):
+            if stale_card in stale_source:
+                failures.append(f"{label} still references stale social card: {stale_card}")
+
+    for stale_count in (
+        "FEATURED 3 · CLEARLY SCOPED",
+        "PROJECT REGISTER / 01—03",
+        "OPEN / 03",
+        "Three open projects",
+        "三個實驗，三種",
+    ):
+        if stale_count.lower() in lowered:
+            failures.append(f"index.html still contains stale three-project marker: {stale_count}")
 
     robots = ROOT / "robots.txt"
     if robots.is_file() and "https://tokimispace.github.io/sitemap.xml" not in (

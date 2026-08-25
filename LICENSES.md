@@ -9,8 +9,8 @@ The following software and automation are licensed under Apache License 2.0:
 
 - `index.html`, `styles.css`, and `main.js`, including the prose, markup, and
   CSS/SVG illustrations embedded in those files;
-- `social-card-open-source-v2.svg`, its rendered PNG, and the PNG license
-  sidecar;
+- `social-card-open-source-v2.svg` and `social-card-open-source-v3.svg`, their
+  rendered PNGs, and the PNG license sidecars;
 - `robots.txt` and `sitemap.xml`;
 - executable support files under `scripts/`;
 - repository automation and configuration under `.github/`;
@@ -47,6 +47,13 @@ The link to the public Darkforest web-client repository does not license its
 private match server, game core, live operations, production content pack, or
 any other unreleased Darkforest material. Refer to that repository's own
 path-specific license map for the files it actually contains.
+
+The link to
+[BridgeTime Kimi Privacy](https://github.com/TokimiSpace/bridgetime-kimi-privacy)
+describes only that repository's hardened reference extraction. It does not
+license the full BridgeTime service, production infrastructure, merchant data,
+or private application source. Refer to the extraction repository's own
+license and privacy-boundary documentation for its exact scope.
 
 The licenses above do not grant trademark rights in Tokimi, 時見數位科技,
 Tokimi logos, or official-project designations. Necessary attribution,
