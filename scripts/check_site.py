@@ -165,6 +165,20 @@ def main() -> int:
     if source.count(official_site) < 2:
         failures.append("official Tokimi website must be linked in header and footer")
 
+    identity_notice = 'data-official-identity-notice role="note"'
+    if source.count(identity_notice) != 1:
+        failures.append("page must contain exactly one in-flow identity notice with role=note")
+    for marker, failure in {
+        'href="mailto:ben@tokimi.space"': "identity notice lacks official email link",
+        "Any @gmail.com address claiming to represent Tokimi is not an official Tokimi contact channel": "identity notice lacks exact English Gmail warning",
+        "Do not pay or share verification codes": "identity notice lacks English payment/code warning",
+        "以 @gmail.com 結尾、並自稱代表 Tokimi": "identity notice lacks exact Chinese Gmail warning",
+        "不是 Tokimi 官方聯絡管道": "identity notice lacks Chinese official-channel warning",
+        "請勿付款或提供驗證碼": "identity notice lacks Chinese payment/code warning",
+    }.items():
+        if marker.lower() not in lowered:
+            failures.append(failure)
+
     for locale, link in {
         "Traditional Chinese": 'href="https://tokimi.space/open-source/"',
         "English": 'href="https://tokimi.space/en/open-source/"',
@@ -235,6 +249,18 @@ def main() -> int:
     for language_url in ("?lang=en", "?lang=zh-TW"):
         if language_url not in readme:
             failures.append(f"missing documented language URL: {language_url}")
+
+    for readme_name in ("README.md", "README.en.md"):
+        readme_source = (WEBSITE / readme_name).read_text(encoding="utf-8")
+        for marker in (
+            "> [!WARNING]",
+            "Any `@gmail.com` address claiming to represent Tokimi is not an official Tokimi contact channel",
+            "請勿付款或提供驗證碼",
+            "https://tokimi.space/",
+            "mailto:ben@tokimi.space",
+        ):
+            if marker not in readme_source:
+                failures.append(f"{readme_name} lacks anti-fraud marker: {marker}")
 
     if not parser.json_ld_blocks:
         failures.append("missing parseable JSON-LD block")

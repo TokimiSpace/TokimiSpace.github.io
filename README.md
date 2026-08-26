@@ -13,6 +13,15 @@
 
 </div>
 
+> [!WARNING]
+> **防詐提醒 / Fraud alert**
+>
+> 任何以 `@gmail.com` 結尾、並自稱代表 Tokimi／時見數位科技的帳號，都不是 Tokimi 官方聯絡管道；請勿付款或提供驗證碼。
+>
+> Any `@gmail.com` address claiming to represent Tokimi is not an official Tokimi contact channel; do not pay or share verification codes.
+>
+> **請只透過 / Verify only through：** [tokimi.space](https://tokimi.space/) · [ben@tokimi.space](mailto:ben@tokimi.space)
+
 ![Tokimi Open Source 社群預覽圖：訊號匯流排連結 Rover、AstroGroot、Darkforest Web 與 BridgeTime Kimi Privacy](social-card-open-source-v3.png)
 
 這個 repository 是 [TokimiSpace GitHub Pages](https://tokimispace.github.io/?lang=zh-TW)
