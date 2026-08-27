@@ -35,7 +35,7 @@
 | 🚗 [Tokimi Rover](https://github.com/TokimiSpace/tokimi-rover) | 雙 ESP32-S3 韌體、接線文件、稽核紀錄、Supercar V3 Blender 車殼 CAD | 本次沒有重新做實車安全測試；CAD 尺寸衝突仍待 A4 實體 fit-check，不能視為已驗證裝配 |
 | 🔭 [AstroGroot](https://github.com/topben/astrogroot) | MIT 授權的 Deno/Hono 應用、收集器、三語搜尋、知識圖、API 與 MCP | 不重新授權被索引的第三方內容；AI 摘要不是權威來源，需回原始資料核對 |
 | 🌲 [Darkforest Web](https://github.com/TokimiSpace/darkforest-web) | 瀏覽器前端、12 組本機 fixtures、6 語介面與 QA 工具 | pre-alpha、loopback-only demo；不含正式配對、私人 game core、官方 service contract 或 LiveOps |
-| 🛡️ [BridgeTime Kimi Privacy](https://github.com/TokimiSpace/bridgetime-kimi-privacy) | 別名化、最小 envelope、fail-closed egress、唯讀 tools 與離線 capture tests | 不含完整 BridgeTime 服務；是 pseudonymization 而非匿名化，且不能證明辨識所有個資；production assistant 截至 2026-08-25 為 disabled |
+| 🛡️ [BridgeTime Kimi Privacy](https://github.com/TokimiSpace/bridgetime-kimi-privacy) | v0.2.0 Private Intent 五欄位白名單、固定 Kimi 出站邊界、離線 wire capture tests，並保留別名化比較模式 | 不含完整 BridgeTime 服務或部署證明；Kimi 仍會看到抽象操作與帳號／網路 metadata，別名化模式仍有重識別風險 |
 
 相關正式服務：[AstroGroot](https://astrogroot.org/?lang=zh-TW) ·
 [Darkforest](https://darkforest.tw/) · [BridgeTime](https://bridgetime.org/)。正式服務與上述開源範圍不等同。

@@ -5,7 +5,7 @@ SPDX-License-Identifier: Apache-2.0
 -->
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
   <title id="title">Tokimi Open Source four-project signal bus</title>
-  <desc id="description">A Tokimi signal bus branches to Tokimi Rover, AstroGroot, Darkforest Web, and the BridgeTime Kimi privacy-envelope reference.</desc>
+  <desc id="description">A Tokimi signal bus branches to Tokimi Rover, AstroGroot, Darkforest Web, and the BridgeTime Kimi Private Intent reference.</desc>
   <defs>
     <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
       <path d="M32 0H0V32" fill="none" stroke="#b9c8c4" stroke-opacity="0.34" stroke-width="1"/>
@@ -110,7 +110,7 @@ SPDX-License-Identifier: Apache-2.0
         <rect x="748" y="424" width="348" height="64" rx="2" fill="#f9fbf9" stroke="#6f284e" stroke-width="1.4"/>
         <rect x="748" y="424" width="6" height="64" fill="#a33c73"/>
         <text x="776" y="451" fill="#102129" font-size="15" font-weight="800" letter-spacing="0.55">04 / BRIDGETIME KIMI PRIVACY</text>
-        <text x="776" y="472" fill="#6f284e" font-size="9.5" font-weight="800" letter-spacing="0.4">SUPPORTED ID → ALIAS / BLOCK → KIMI</text>
+        <text x="776" y="472" fill="#6f284e" font-size="9.5" font-weight="800" letter-spacing="0.4">LOCAL DATA → FIVE ENUM FIELDS → KIMI</text>
       </g>
 
       <text x="544" y="523" fill="#43585f" font-size="12" font-weight="700" letter-spacing="1">SOURCE · CONTENT · SERVER · PRIVACY</text>

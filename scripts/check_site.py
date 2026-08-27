@@ -99,12 +99,12 @@ def main() -> int:
         "FRONTEND · PRE-ALPHA",
         "APACHE-2.0 CODE",
         "SERVER NOT INCLUDED",
-        "HARDENED REFERENCE EXTRACTION",
+        "PRIVATE INTENT V0.2.0",
         "NOT PRODUCTION DEPLOYMENT EVIDENCE",
-        "PSEUDONYMIZATION · NOT ANONYMIZATION",
-        "OUTBOUND PAYLOAD TESTS",
-        "SUPPORTED ID → ALIAS / BLOCK → KIMI",
-        "MINIMIZED DATA MAY BE SENT",
+        "FIVE-FIELD RUNTIME ALLOWLIST",
+        "EXACT WIRE-CAPTURE TESTS",
+        "LOCAL DATA → FIVE ENUM FIELDS → KIMI",
+        "ABSTRACT INTENT METADATA",
     }
     lowered = source.lower()
     for marker in sorted(required_markers):
@@ -334,7 +334,7 @@ def main() -> int:
             "ASTROGROOT",
             "DARKFOREST WEB",
             "BRIDGETIME KIMI PRIVACY",
-            "SUPPORTED ID → ALIAS / BLOCK → KIMI",
+            "LOCAL DATA → FIVE ENUM FIELDS → KIMI",
             "OPEN / 04",
             "#007370",
             "#6655c7",
