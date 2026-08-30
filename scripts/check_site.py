@@ -121,7 +121,7 @@ def main() -> int:
             failures.append(f"missing language option: {language}")
 
     social_image_url = (
-        f"https://tokimispace.github.io/{SOCIAL_CARD_BASENAME}.png"
+        f"https://tokimispace.github.io/{SOCIAL_CARD_BASENAME}.png?v=5"
     )
     for marker, failure in {
         '<meta name="robots" content="index, follow, max-image-preview:large">': "missing large-image robots directive",
