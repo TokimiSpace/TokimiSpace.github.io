@@ -92,8 +92,8 @@ def main() -> int:
         "APPLICATION CODE · MIT",
         "AI SUMMARIES · CHECK SOURCES",
         "BUILD + DATA NOT AUDIT-VERIFIED",
-        "FEATURED 4 · CLEARLY SCOPED",
-        "PROJECT REGISTER / 01—04",
+        "FEATURED 5 · CLEARLY SCOPED",
+        "PROJECT REGISTER / 01—05",
         "PUBLISHING PROTOCOL / 04",
         "FRONTEND SOURCE AVAILABLE",
         "FRONTEND · PRE-ALPHA",
@@ -105,6 +105,11 @@ def main() -> int:
         "EXACT WIRE-CAPTURE TESTS",
         "LOCAL DATA → FIVE ENUM FIELDS → KIMI",
         "ABSTRACT INTENT METADATA",
+        "PUBLIC SPEC + TEST VECTORS",
+        "STANDARD-LIBRARY VERIFIER",
+        "GO + TYPESCRIPT SDK V0.2.0",
+        "OIDC + SLSA PROVENANCE",
+        "NO TEE · NO TRUST SCORE",
     }
     lowered = source.lower()
     for marker in sorted(required_markers):
@@ -210,6 +215,10 @@ def main() -> int:
             'href="https://github.com/TokimiSpace/bridgetime-kimi-privacy"'
         ),
         "BridgeTime live site": 'href="https://bridgetime.org/"',
+        "IFF transparency source": (
+            'href="https://github.com/ifandonlyif-io/iff-x402-transparency"'
+        ),
+        "IFF public evidence service": 'href="https://ifandonlyif.io/"',
     }.items():
         if link not in source:
             failures.append(f"missing {label} link")
@@ -272,11 +281,11 @@ def main() -> int:
         else:
             if json_ld.get("@type") != "ItemList":
                 failures.append("JSON-LD root must be an ItemList")
-            if json_ld.get("numberOfItems") != 4:
-                failures.append("JSON-LD project count must be 4")
+            if json_ld.get("numberOfItems") != 5:
+                failures.append("JSON-LD project count must be 5")
             elements = json_ld.get("itemListElement")
-            if not isinstance(elements, list) or len(elements) != 4:
-                failures.append("JSON-LD must describe exactly four projects")
+            if not isinstance(elements, list) or len(elements) != 5:
+                failures.append("JSON-LD must describe exactly five projects")
             else:
                 repositories = {
                     element.get("item", {}).get("codeRepository")
@@ -288,6 +297,7 @@ def main() -> int:
                     "https://github.com/topben/astrogroot",
                     "https://github.com/TokimiSpace/darkforest-web",
                     "https://github.com/TokimiSpace/bridgetime-kimi-privacy",
+                    "https://github.com/ifandonlyif-io/iff-x402-transparency",
                 }
                 missing_repositories = expected_repositories - repositories
                 if missing_repositories:
@@ -334,12 +344,14 @@ def main() -> int:
             "ASTROGROOT",
             "DARKFOREST WEB",
             "BRIDGETIME KIMI PRIVACY",
+            "IFF X402 TRANSPARENCY",
             "LOCAL DATA → FIVE ENUM FIELDS → KIMI",
-            "OPEN / 04",
+            "OPEN / 05",
             "#007370",
             "#6655c7",
             "#dc5939",
             "#a33c73",
+            "#1d5fa7",
         ):
             if marker not in social_source:
                 failures.append(f"social-card source missing project signal: {marker}")
@@ -356,6 +368,12 @@ def main() -> int:
                 failures.append(f"{label} still references stale social card: {stale_card}")
 
     for stale_count in (
+        "FEATURED 4 · CLEARLY SCOPED",
+        "PROJECT REGISTER / 01—04",
+        "OPEN / 04",
+        "Four open projects",
+        "Four projects",
+        "四個實驗，四種",
         "FEATURED 3 · CLEARLY SCOPED",
         "PROJECT REGISTER / 01—03",
         "OPEN / 03",
@@ -363,7 +381,7 @@ def main() -> int:
         "三個實驗，三種",
     ):
         if stale_count.lower() in lowered:
-            failures.append(f"index.html still contains stale three-project marker: {stale_count}")
+            failures.append(f"index.html still contains stale project-count marker: {stale_count}")
 
     robots = ROOT / "robots.txt"
     if robots.is_file() and "https://tokimispace.github.io/sitemap.xml" not in (

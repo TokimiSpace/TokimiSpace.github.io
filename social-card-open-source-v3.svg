@@ -4,21 +4,23 @@ SPDX-FileCopyrightText: 2026 TokimiSpace contributors
 SPDX-License-Identifier: Apache-2.0
 -->
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
-  <title id="title">Tokimi Open Source four-project signal bus</title>
-  <desc id="description">A Tokimi signal bus branches to Tokimi Rover, AstroGroot, Darkforest Web, and the BridgeTime Kimi Private Intent reference.</desc>
+  <title id="title">Tokimi Open Source five-project signal bus</title>
+  <desc id="description">A Tokimi signal bus branches to Tokimi Rover, AstroGroot, Darkforest Web, BridgeTime Kimi Privacy, and IFF x402 Transparency.</desc>
   <defs>
     <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
       <path d="M32 0H0V32" fill="none" stroke="#b9c8c4" stroke-opacity="0.34" stroke-width="1"/>
     </pattern>
     <linearGradient id="project-spectrum" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#007370"/>
-      <stop offset="0.25" stop-color="#007370"/>
-      <stop offset="0.25" stop-color="#6655c7"/>
-      <stop offset="0.5" stop-color="#6655c7"/>
-      <stop offset="0.5" stop-color="#dc5939"/>
-      <stop offset="0.75" stop-color="#dc5939"/>
-      <stop offset="0.75" stop-color="#a33c73"/>
-      <stop offset="1" stop-color="#a33c73"/>
+      <stop offset="0.2" stop-color="#007370"/>
+      <stop offset="0.2" stop-color="#6655c7"/>
+      <stop offset="0.4" stop-color="#6655c7"/>
+      <stop offset="0.4" stop-color="#dc5939"/>
+      <stop offset="0.6" stop-color="#dc5939"/>
+      <stop offset="0.6" stop-color="#a33c73"/>
+      <stop offset="0.8" stop-color="#a33c73"/>
+      <stop offset="0.8" stop-color="#1d5fa7"/>
+      <stop offset="1" stop-color="#1d5fa7"/>
     </linearGradient>
   </defs>
 
@@ -28,7 +30,7 @@ SPDX-License-Identifier: Apache-2.0
 
   <g fill="#102129" font-family="SFMono-Regular, Menlo, Consolas, monospace">
     <text x="72" y="66" font-size="18" font-weight="700" letter-spacing="2.2">TOKIMI / OPEN SOURCE / SIGNAL BUS</text>
-    <text x="1128" y="66" font-size="14" text-anchor="end" letter-spacing="1.8">OS.04 / 2026</text>
+    <text x="1128" y="66" font-size="14" text-anchor="end" letter-spacing="1.8">OS.05 / 2026</text>
   </g>
   <path d="M72 94H1128" fill="none" stroke="#345057" stroke-width="1"/>
 
@@ -40,20 +42,22 @@ SPDX-License-Identifier: Apache-2.0
   </g>
 
   <g aria-hidden="true">
-    <path d="M72 447H167" stroke="#007370" stroke-width="5"/>
-    <path d="M167 447H262" stroke="#6655c7" stroke-width="5"/>
-    <path d="M262 447H357" stroke="#dc5939" stroke-width="5"/>
-    <path d="M357 447H452" stroke="#a33c73" stroke-width="5"/>
+    <path d="M72 447H148" stroke="#007370" stroke-width="5"/>
+    <path d="M148 447H224" stroke="#6655c7" stroke-width="5"/>
+    <path d="M224 447H300" stroke="#dc5939" stroke-width="5"/>
+    <path d="M300 447H376" stroke="#a33c73" stroke-width="5"/>
+    <path d="M376 447H452" stroke="#1d5fa7" stroke-width="5"/>
   </g>
 
-  <text x="73" y="486" fill="#102129" font-family="PingFang TC, Noto Sans TC, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="0.6">四個實驗，四種清楚的開放邊界</text>
+  <text x="73" y="486" fill="#102129" font-family="PingFang TC, Noto Sans TC, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="0.6">五個實驗，五種清楚的開放邊界</text>
   <g font-family="SFMono-Regular, Menlo, Consolas, monospace">
     <rect x="72" y="507" width="382" height="37" rx="2" fill="#f9fbf9" stroke="#345057" stroke-width="1.5"/>
     <circle cx="95" cy="525.5" r="5" fill="#007370"/>
     <circle cx="111" cy="525.5" r="5" fill="#6655c7"/>
     <circle cx="127" cy="525.5" r="5" fill="#dc5939"/>
     <circle cx="143" cy="525.5" r="5" fill="#a33c73"/>
-    <text x="163" y="531" fill="#102129" font-size="15" font-weight="800" letter-spacing="1">OPEN / 04 · EXPLICITLY SCOPED</text>
+    <circle cx="159" cy="525.5" r="5" fill="#1d5fa7"/>
+    <text x="179" y="531" fill="#102129" font-size="15" font-weight="800" letter-spacing="1">OPEN / 05 · EXPLICITLY SCOPED</text>
   </g>
 
   <g>
@@ -62,58 +66,67 @@ SPDX-License-Identifier: Apache-2.0
     <circle cx="876" cy="262" r="134" fill="#6655c7" fill-opacity="0.04"/>
     <circle cx="1032" cy="456" r="94" fill="#a33c73" fill-opacity="0.06"/>
 
-    <text x="544" y="141" fill="#43585f" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="13" font-weight="700" letter-spacing="1.4">TOKIMI / PROJECT NETWORK / OPEN 04</text>
+    <text x="544" y="141" fill="#43585f" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="13" font-weight="700" letter-spacing="1.4">TOKIMI / PROJECT NETWORK / OPEN 05</text>
     <text x="1104" y="141" fill="#43585f" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700" text-anchor="end" letter-spacing="1.1">PUBLIC SIGNAL</text>
 
     <g aria-hidden="true">
       <path d="M548 326H650" fill="none" stroke="#102129" stroke-width="5" stroke-linecap="round"/>
-      <path d="M650 326H686V192H740" fill="none" stroke="#007370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M650 326H696V280H740" fill="none" stroke="#6655c7" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M650 326H696V368H740" fill="none" stroke="#dc5939" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M650 326H686V456H740" fill="none" stroke="#a33c73" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M650 326H678V180H740" fill="none" stroke="#007370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M650 326H688V254H740" fill="none" stroke="#6655c7" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M650 326H740" fill="none" stroke="#dc5939" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M650 326H688V398H740" fill="none" stroke="#a33c73" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M650 326H678V472H740" fill="none" stroke="#1d5fa7" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
       <circle cx="650" cy="326" r="13" fill="#f9fbf9" stroke="#102129" stroke-width="4"/>
       <circle cx="650" cy="326" r="4" fill="#102129"/>
-      <circle cx="740" cy="192" r="8" fill="#007370" stroke="#f9fbf9" stroke-width="3"/>
-      <circle cx="740" cy="280" r="8" fill="#6655c7" stroke="#f9fbf9" stroke-width="3"/>
-      <circle cx="740" cy="368" r="8" fill="#dc5939" stroke="#f9fbf9" stroke-width="3"/>
-      <rect x="731" y="447" width="18" height="18" rx="2" fill="#f9fbf9" stroke="#a33c73" stroke-width="4"/>
-      <path d="m734 451 6 5 6-5" fill="none" stroke="#a33c73" stroke-width="1.5"/>
+      <circle cx="740" cy="180" r="8" fill="#007370" stroke="#f9fbf9" stroke-width="3"/>
+      <circle cx="740" cy="254" r="8" fill="#6655c7" stroke="#f9fbf9" stroke-width="3"/>
+      <circle cx="740" cy="326" r="8" fill="#dc5939" stroke="#f9fbf9" stroke-width="3"/>
+      <rect x="731" y="389" width="18" height="18" rx="2" fill="#f9fbf9" stroke="#a33c73" stroke-width="4"/>
+      <path d="m734 393 6 5 6-5" fill="none" stroke="#a33c73" stroke-width="1.5"/>
+      <circle cx="740" cy="472" r="8" fill="#1d5fa7" stroke="#f9fbf9" stroke-width="3"/>
       <path d="M562 308v36M578 314v24M594 314v24M610 308v36" fill="none" stroke="#b9c8c4" stroke-width="2"/>
     </g>
 
     <g font-family="SFMono-Regular, Menlo, Consolas, monospace">
       <text x="548" y="295" fill="#43585f" font-size="11" font-weight="700" letter-spacing="1.1">ONE BUS</text>
-      <text x="548" y="366" fill="#43585f" font-size="11" font-weight="700" letter-spacing="1.1">FOUR BRANCHES</text>
+      <text x="548" y="366" fill="#43585f" font-size="11" font-weight="700" letter-spacing="1.1">FIVE BRANCHES</text>
 
       <g>
-        <rect x="748" y="160" width="348" height="64" rx="2" fill="#f9fbf9" stroke="#345057" stroke-width="1.2"/>
-        <rect x="748" y="160" width="6" height="64" fill="#007370"/>
-        <text x="776" y="187" fill="#102129" font-size="16" font-weight="800" letter-spacing="0.7">01 / TOKIMI ROVER</text>
-        <text x="776" y="208" fill="#43585f" font-size="11" font-weight="700" letter-spacing="0.8">HARDWARE · FIRMWARE · CAD</text>
+        <rect x="748" y="154" width="348" height="52" rx="2" fill="#f9fbf9" stroke="#345057" stroke-width="1.2"/>
+        <rect x="748" y="154" width="6" height="52" fill="#007370"/>
+        <text x="776" y="176" fill="#102129" font-size="14" font-weight="800" letter-spacing="0.7">01 / TOKIMI ROVER</text>
+        <text x="776" y="194" fill="#43585f" font-size="10" font-weight="700" letter-spacing="0.8">HARDWARE · FIRMWARE · CAD</text>
       </g>
 
       <g>
-        <rect x="748" y="248" width="348" height="64" rx="2" fill="#f9fbf9" stroke="#345057" stroke-width="1.2"/>
-        <rect x="748" y="248" width="6" height="64" fill="#6655c7"/>
-        <text x="776" y="275" fill="#102129" font-size="16" font-weight="800" letter-spacing="0.7">02 / ASTROGROOT</text>
-        <text x="776" y="296" fill="#43585f" font-size="11" font-weight="700" letter-spacing="0.8">LIVE LIBRARY · MIT SOURCE</text>
+        <rect x="748" y="228" width="348" height="52" rx="2" fill="#f9fbf9" stroke="#345057" stroke-width="1.2"/>
+        <rect x="748" y="228" width="6" height="52" fill="#6655c7"/>
+        <text x="776" y="250" fill="#102129" font-size="14" font-weight="800" letter-spacing="0.7">02 / ASTROGROOT</text>
+        <text x="776" y="268" fill="#43585f" font-size="10" font-weight="700" letter-spacing="0.8">LIVE LIBRARY · MIT SOURCE</text>
       </g>
 
       <g>
-        <rect x="748" y="336" width="348" height="64" rx="2" fill="#f9fbf9" stroke="#345057" stroke-width="1.2"/>
-        <rect x="748" y="336" width="6" height="64" fill="#dc5939"/>
-        <text x="776" y="363" fill="#102129" font-size="16" font-weight="800" letter-spacing="0.7">03 / DARKFOREST WEB</text>
-        <text x="776" y="384" fill="#43585f" font-size="11" font-weight="700" letter-spacing="0.8">CLIENT · LOCAL DEMO · PRE-ALPHA</text>
+        <rect x="748" y="300" width="348" height="52" rx="2" fill="#f9fbf9" stroke="#345057" stroke-width="1.2"/>
+        <rect x="748" y="300" width="6" height="52" fill="#dc5939"/>
+        <text x="776" y="322" fill="#102129" font-size="14" font-weight="800" letter-spacing="0.7">03 / DARKFOREST WEB</text>
+        <text x="776" y="340" fill="#43585f" font-size="10" font-weight="700" letter-spacing="0.8">CLIENT · LOCAL DEMO · PRE-ALPHA</text>
       </g>
 
       <g>
-        <rect x="748" y="424" width="348" height="64" rx="2" fill="#f9fbf9" stroke="#6f284e" stroke-width="1.4"/>
-        <rect x="748" y="424" width="6" height="64" fill="#a33c73"/>
-        <text x="776" y="451" fill="#102129" font-size="15" font-weight="800" letter-spacing="0.55">04 / BRIDGETIME KIMI PRIVACY</text>
-        <text x="776" y="472" fill="#6f284e" font-size="9.5" font-weight="800" letter-spacing="0.4">LOCAL DATA → FIVE ENUM FIELDS → KIMI</text>
+        <rect x="748" y="372" width="348" height="52" rx="2" fill="#f9fbf9" stroke="#6f284e" stroke-width="1.4"/>
+        <rect x="748" y="372" width="6" height="52" fill="#a33c73"/>
+        <text x="776" y="394" fill="#102129" font-size="13" font-weight="800" letter-spacing="0.55">04 / BRIDGETIME KIMI PRIVACY</text>
+        <text x="776" y="412" fill="#6f284e" font-size="8.5" font-weight="800" letter-spacing="0.2">LOCAL DATA → FIVE ENUM FIELDS → KIMI</text>
       </g>
 
-      <text x="544" y="523" fill="#43585f" font-size="12" font-weight="700" letter-spacing="1">SOURCE · CONTENT · SERVER · PRIVACY</text>
+      <g>
+        <rect x="748" y="446" width="348" height="52" rx="2" fill="#f9fbf9" stroke="#143d6b" stroke-width="1.4"/>
+        <rect x="748" y="446" width="6" height="52" fill="#1d5fa7"/>
+        <text x="776" y="468" fill="#102129" font-size="14" font-weight="800" letter-spacing="0.55">05 / IFF X402 TRANSPARENCY</text>
+        <text x="776" y="486" fill="#143d6b" font-size="9.5" font-weight="800" letter-spacing="0.4">SPEC · VECTORS · VERIFIER · SDK</text>
+      </g>
+
+      <text x="544" y="523" fill="#43585f" font-size="11" font-weight="700" letter-spacing="0.8">SOURCE · CONTENT · SERVER · PRIVACY · EVIDENCE</text>
       <text x="1104" y="523" fill="#43585f" font-size="12" font-weight="700" text-anchor="end" letter-spacing="1">BOUNDARIES VISIBLE</text>
     </g>
   </g>

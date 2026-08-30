@@ -2,7 +2,7 @@
 
 # Tokimi Open Source
 
-**四個 Tokimi 開源方向的雙語入口：公開內容、驗證證據與誠實邊界集中在一頁。**
+**五個 Tokimi 開源方向的雙語入口：公開內容、驗證證據與誠實邊界集中在一頁。**
 
 [繁體中文](README.md) · [English](README.en.md)
 
@@ -22,13 +22,13 @@
 >
 > **請只透過 / Verify only through：** [tokimi.space](https://tokimi.space/) · [ben@tokimi.space](mailto:ben@tokimi.space)
 
-![Tokimi Open Source 社群預覽圖：訊號匯流排連結 Rover、AstroGroot、Darkforest Web 與 BridgeTime Kimi Privacy](social-card-open-source-v3.png)
+![Tokimi Open Source 社群預覽圖：訊號匯流排連結 Rover、AstroGroot、Darkforest Web、BridgeTime Kimi Privacy 與 IFF x402 Transparency](social-card-open-source-v3.png)
 
 這個 repository 是 [TokimiSpace GitHub Pages](https://tokimispace.github.io/?lang=zh-TW)
-的 dependency-free 靜態原始碼，也是四個專案的共同入口。它同時說明「公開什麼」與
+的 dependency-free 靜態原始碼，也是五個專案的共同入口。它同時說明「公開什麼」與
 「沒有公開或不能證明什麼」，避免把本機 demo、研究索引或隱私 reference 誤認為完整正式服務。
 
-## 四個專案的公開範圍
+## 五個專案的公開範圍
 
 | 專案 | 公開內容 | 未包含／不能代表 |
 | --- | --- | --- |
@@ -36,9 +36,10 @@
 | 🔭 [AstroGroot](https://github.com/topben/astrogroot) | MIT 授權的 Deno/Hono 應用、收集器、三語搜尋、知識圖、API 與 MCP | 不重新授權被索引的第三方內容；AI 摘要不是權威來源，需回原始資料核對 |
 | 🌲 [Darkforest Web](https://github.com/TokimiSpace/darkforest-web) | 瀏覽器前端、12 組本機 fixtures、6 語介面與 QA 工具 | pre-alpha、loopback-only demo；不含正式配對、私人 game core、官方 service contract 或 LiveOps |
 | 🛡️ [BridgeTime Kimi Privacy](https://github.com/TokimiSpace/bridgetime-kimi-privacy) | v0.2.0 Private Intent 五欄位白名單、固定 Kimi 出站邊界、離線 wire capture tests，並保留別名化比較模式 | 不含完整 BridgeTime 服務或部署證明；Kimi 仍會看到抽象操作與帳號／網路 metadata，別名化模式仍有重識別風險 |
+| 🔎 [IFF x402 Transparency](https://github.com/ifandonlyif-io/iff-x402-transparency) | x402 v2 公開規格、測試向量、標準函式庫 verifier、Go／TypeScript SDK、OIDC 與 SLSA release provenance | 具名觀測與軟體來源證據不等於 endpoint 誠實、付款安全、TEE／遠端證明或綜合信任分數；手動 probe 不影響公開卡片 |
 
 相關正式服務：[AstroGroot](https://astrogroot.org/?lang=zh-TW) ·
-[Darkforest](https://darkforest.tw/) · [BridgeTime](https://bridgetime.org/)。正式服務與上述開源範圍不等同。
+[Darkforest](https://darkforest.tw/) · [BridgeTime](https://bridgetime.org/) · [IFF](https://ifandonlyif.io/)。正式服務與上述開源範圍不等同。
 
 ## 60 秒本機預覽
 
