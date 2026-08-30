@@ -2,7 +2,7 @@
 
 # Tokimi Open Source
 
-**A bilingual entry point to four Tokimi open-source directions, with public scope, evidence, and honest boundaries in one place.**
+**A bilingual entry point to five Tokimi open-source directions, with public scope, evidence, and honest boundaries in one place.**
 
 [繁體中文](README.md) · [English](README.en.md)
 
@@ -22,14 +22,14 @@
 >
 > **Verify only through / 請只透過：** [tokimi.space](https://tokimi.space/) · [ben@tokimi.space](mailto:ben@tokimi.space)
 
-![Tokimi Open Source social card: a signal bus connects Rover, AstroGroot, Darkforest Web, and BridgeTime Kimi Privacy](social-card-open-source-v3.png)
+![Tokimi Open Source social card: a signal bus connects Rover, AstroGroot, Darkforest Web, BridgeTime Kimi Privacy, and IFF x402 Transparency](social-card-open-source-v3.png)
 
 This repository contains the dependency-free static source for
 [TokimiSpace GitHub Pages](https://tokimispace.github.io/?lang=en) and serves as the common entry
-point to four projects. It states both what is open and what is not included or proven, so a local
+point to five projects. It states both what is open and what is not included or proven, so a local
 demo, research index, or privacy reference is not mistaken for a complete production service.
 
-## Public scope of the four projects
+## Public scope of the five projects
 
 | Project | What is open | Not included / not evidence of |
 | --- | --- | --- |
@@ -37,9 +37,10 @@ demo, research index, or privacy reference is not mistaken for a complete produc
 | 🔭 [AstroGroot](https://github.com/topben/astrogroot) | MIT-licensed Deno/Hono application, collectors, trilingual search, knowledge map, APIs, and MCP | Indexed third-party material is not relicensed; AI summaries are not authoritative and must be checked against original sources |
 | 🌲 [Darkforest Web](https://github.com/TokimiSpace/darkforest-web) | Browser frontend, 12 local fixtures, 6 interface locales, and QA tooling | A pre-alpha, loopback-only demo; no production matchmaking, private game core, official service contract, or LiveOps |
 | 🛡️ [BridgeTime Kimi Privacy](https://github.com/TokimiSpace/bridgetime-kimi-privacy) | v0.2.0 Private Intent five-field allowlist, pinned Kimi egress, offline wire-capture tests, and a retained alias mode for comparison | Not the complete BridgeTime service or deployment evidence; Kimi still sees abstract operation and account/network metadata, while the alias mode retains re-identification risk |
+| 🔎 [IFF x402 Transparency](https://github.com/ifandonlyif-io/iff-x402-transparency) | Public x402 v2 specification, test vectors, standard-library verifier, Go and TypeScript SDKs, and OIDC/SLSA release provenance | Named observations and software provenance are not proof of endpoint honesty, payment safety, TEE/remote attestation, or a composite trust score; manual probes do not affect public cards |
 
 Related production services: [AstroGroot](https://astrogroot.org/?lang=en) ·
-[Darkforest](https://darkforest.tw/) · [BridgeTime](https://bridgetime.org/). Their production scope is not the same as the open repositories above.
+[Darkforest](https://darkforest.tw/) · [BridgeTime](https://bridgetime.org/) · [IFF](https://ifandonlyif.io/). Their production scope is not the same as the open repositories above.
 
 ## Local preview in 60 seconds
 

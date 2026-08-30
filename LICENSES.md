@@ -55,6 +55,13 @@ license the full BridgeTime service, production infrastructure, merchant data,
 or private application source. Refer to the extraction repository's own
 license and privacy-boundary documentation for its exact scope.
 
+The link to
+[IFF x402 Transparency](https://github.com/ifandonlyif-io/iff-x402-transparency)
+does not relicense the private IFF service or imply endpoint honesty, payment
+safety, trusted execution, remote attestation, or a composite trust score.
+Refer to that repository's own license and provenance records for its exact
+open scope.
+
 The licenses above do not grant trademark rights in Tokimi, 時見數位科技,
 Tokimi logos, or official-project designations. Necessary attribution,
 faithful reproduction of licensed material, and truthful factual reference
